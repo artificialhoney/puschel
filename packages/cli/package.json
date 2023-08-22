@@ -1,0 +1,25 @@
+{
+  "name": "@xx/cli",
+  "type": "commonjs",
+  "bin": {
+    "xx": "./bin/run"
+  },
+  "dependencies": {
+    "@oclif/core": "^2",
+    "@oclif/plugin-help": "^5"
+  },
+  "oclif": {
+    "bin": "xx",
+    "dirname": "xx",
+    "commands": "./src/lib",
+    "plugins": [
+      "@oclif/plugin-help"
+    ],
+    "topicSeparator": " ",
+    "topics": {
+      "hello": {
+        "description": "Say hello to the world and others"
+      }
+    }
+  }
+}

@@ -1,0 +1,131 @@
+- name: Roll Out XX
+  hosts: all
+  vars:
+    node_version: 16.20.0
+    repo: http://192.168.178.61:4873
+
+  tasks:
+    - name: Update and upgrade
+      become: true
+      ansible.builtin.apt:
+        upgrade: true
+        update_cache: true
+    - name: Install packages
+      become: true
+      ansible.builtin.apt:
+        pkg:
+          - libcap2-bin
+          - network-manager
+          - bluetooth
+          - bluez
+          - libbluetooth-dev
+          - libudev-dev
+        state: present
+        update_cache: true
+    - name: Download NVM installer
+      ansible.builtin.get_url:
+        url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh
+        dest: /tmp/nvm-install.sh
+        mode: '0777'
+    - name: Execute NVM installer
+      ansible.builtin.command: /tmp/nvm-install.sh
+      register: output
+      changed_when: output.rc != 0
+    - name: Remove NVM installer
+      ansible.builtin.file:
+        path: /tmp/nvm-install.sh
+        state: absent
+    - name: Install Node.js
+      ansible.builtin.shell:
+        cmd: source ~/.nvm/nvm.sh && nvm install {{ node_version }}
+        executable: /bin/bash
+      register: output
+      changed_when: output.rc != 0
+    - name: Install pm2
+      ansible.builtin.shell:
+        cmd: source ~/.nvm/nvm.sh && npm i -g pm2
+        executable: /bin/bash
+      register: output
+      changed_when: output.rc != 0
+    - name: Setup pm2 startup script
+      ansible.builtin.shell:
+        cmd: source ~/.nvm/nvm.sh && pm2 startup
+        executable: /bin/bash
+      register: output
+      changed_when: output.rc != 0
+      failed_when: output.rc not in [0, 1]
+    - name: Enable pm2
+      become: true
+      ansible.builtin.shell:
+        cmd: env PATH=$PATH:/home/xx/.nvm/versions/node/v{{ node_version }}/bin /home/xx/.nvm/versions/node/v{{ node_version }}/lib/node_modules/pm2/bin/pm2 startup systemd -u xx --hp /home/xx
+        executable: /bin/bash
+      register: output
+      changed_when: output.rc != 0
+    - name: Setup NPM for @xx
+      ansible.builtin.copy:
+        dest: ~/.npmrc
+        content: |
+          @xx:registry={{ repo }}
+        mode: '0777'
+    - name: Disable WiFi power save
+      become: true
+      ansible.builtin.copy:
+        dest: /etc/NetworkManager/conf.d/default-wifi-powersave-off.conf
+        content: |
+          [connection]
+          wifi.powersave = 2
+        mode: '0600'
+    - name: Setup capabilities
+      become: true
+      ansible.builtin.shell:
+        cmd: source /home/xx/.nvm/nvm.sh && setcap cap_net_bind_service,cap_net_raw+eip $(eval readlink -f `which node`)
+        executable: /bin/bash
+      register: output
+      changed_when: output.rc != 0
+    - name: Set user group for networking
+      become: true
+      ansible.builtin.shell:
+        cmd: usermod -a -G netdev xx
+        executable: /bin/bash
+      register: output
+      changed_when: output.rc != 0
+    - name: Start NetworkManager
+      become: true
+      ansible.builtin.systemd:
+        name: NetworkManager
+        state: started
+        enabled: true
+    - name: Start Bluetooth
+      become: true
+      ansible.builtin.systemd:
+        name: bluetooth
+        state: started
+    - name: Install @xx/cli
+      ansible.builtin.shell:
+        cmd: source ~/.nvm/nvm.sh && npm i -g @xx/cli
+        executable: /bin/bash
+      register: output
+      changed_when: output.rc != 0
+    - name: Create XX
+      ansible.builtin.shell:
+        cmd: source ~/.nvm/nvm.sh && xx create xx --repo={{ repo }}
+        executable: /bin/bash
+      register: output
+      changed_when: output.rc != 0
+    - name: Start XX
+      ansible.builtin.shell:
+        cmd: source ~/.nvm/nvm.sh && pm2 start
+        executable: /bin/bash
+      register: output
+      changed_when: output.rc != 0
+      args:
+        chdir: xx
+    - name: Save pm2 state
+      ansible.builtin.shell:
+        cmd: source ~/.nvm/nvm.sh && pm2 save
+        executable: /bin/bash
+      register: output
+      changed_when: output.rc != 0
+    - name: Reboot
+      become: true
+      ansible.builtin.reboot:

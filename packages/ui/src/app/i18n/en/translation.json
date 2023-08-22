@@ -1,0 +1,402 @@
+{
+  "routes": {
+    "notFound": {
+      "title": "Not Found",
+      "breadcrumb": "Not Found",
+      "heading": "Ah, dang. Didn't find that page.",
+      "hint": "Maybe it's best you start back at the home page. ",
+      "link": "Return at home here"
+    },
+    "main": {
+      "title": "Dashboard",
+      "breadcrumb": "Dashboard"
+    },
+    "settings": {
+      "title": "Settings",
+      "breadcrumb": "Settings",
+      "save": "Save"
+    },
+    "users": {
+      "title": "Users",
+      "breadcrumb": "Users",
+      "newUser": "New"
+    },
+    "newUser": {
+      "title": "New User",
+      "breadcrumb": "New"
+    },
+    "editUser": {
+      "title": "Edit {{id}}",
+      "breadcrumb": "{{id}}"
+    },
+    "viewUser": {
+      "title": "{{id}}",
+      "breadcrumb": "{{id}}"
+    },
+    "toys": {
+      "title": "Toys",
+      "breadcrumb": "Toys",
+      "types": {
+        "lovenseLush": {
+          "title": "Lovense Lush"
+        },
+        "fantasyCup": {
+          "title": "Fantasy Cup"
+        },
+        "pulseUnion": {
+          "title": "Pulse Union"
+        },
+        "jefferson": {
+          "title": "Jefferson"
+        }
+      }
+    },
+    "editToy": {
+      "title": "Edit {{id}}",
+      "breadcrumb": "{{id}}"
+    },
+    "viewToy": {
+      "title": "{{id}}",
+      "breadcrumb": "{{id}}"
+    },
+    "plays": {
+      "title": "Plays",
+      "breadcrumb": "Plays"
+    },
+    "newPlay": {
+      "title": "New Play",
+      "breadcrumb": "New"
+    },
+    "editPlay": {
+      "title": "{{id}}",
+      "breadcrumb": "{{id}}"
+    },
+    "viewPlay": {
+      "title": "{{id}}",
+      "breadcrumb": "{{id}}"
+    }
+  },
+  "components": {
+    "modal": {
+      "cancel": "Cancel",
+      "save": "Save"
+    },
+    "footer": {
+      "copyright": "XX. All Rights Reserved.",
+      "support": "Support",
+      "blog": "Blog"
+    },
+    "sidebar": {
+      "title": "XX",
+      "subtitle": "Love Hub"
+    },
+    "navbar": {
+      "pages": "Pages",
+      "logout": "Logout",
+      "settings": "Settings",
+      "admin": "Admin"
+    },
+    "signIn": {
+      "title": "Sign In",
+      "hint": "Enter username and password to sign in!",
+      "username": "Username",
+      "password": "Password",
+      "error": "Username or password are incorrect."
+    },
+    "userForm": {
+      "title": "Details",
+      "hint": "Here you can add or edit user information.",
+      "save": "Save",
+      "create": "Create",
+      "username": "Username",
+      "password": "Password",
+      "description": "Description",
+      "avatar": "Avatar",
+      "gender": "Gender",
+      "genderPlaceholder": "Choose Gender",
+      "genders": {
+        "xx": {
+          "title": "XX"
+        },
+        "xy": {
+          "title": "XY"
+        }
+      },
+      "avatarPlaceholder": "Upload File",
+      "avatarDescription": "PNG, JPG and GIF files are allowed"
+    },
+    "toyForm": {
+      "title": "Details",
+      "hint": "Here you can edit toy information.",
+      "save": "Save",
+      "name": "Name"
+    },
+    "playForm": {
+      "title": "Details",
+      "hint": "Here you can add or edit play information.",
+      "save": "Save",
+      "create": "Create",
+      "name": "Name",
+      "description": "Description",
+      "timelines": {
+        "title": "Timelines",
+        "hint": "Add one or more timeline to control toys.",
+        "label": "Timeline {{index}}",
+        "toyId": "Toy",
+        "toyIdPlaceholder": "Choose Toy",
+        "rides": "Rides"
+      }
+    },
+    "rideForm": {
+      "title": "Ride {{index}}",
+      "hint": "Here you can add or edit ride information.",
+      "enabled": "Enabled",
+      "length": "Length",
+      "toyAssignment": "Assignment",
+      "toyAssignmentPlaceholder": "Choose Assignment",
+      "toyAssignments": {
+        "vibrate": {
+          "title": "Vibrate"
+        },
+        "warm": {
+          "title": "Warm"
+        },
+        "vacuumize": {
+          "title": "Vacuumize"
+        },
+        "electrify": {
+          "title": "Electrify"
+        },
+        "pattern": {
+          "title": "Electrify"
+        }
+      },
+      "satisfier": {
+        "title": "Satisfier",
+        "hint": "Here you can add or edit satisfier information.",
+        "type": "Type",
+        "typePlaceholder": "Choose Type",
+        "types": {
+          "random": {
+            "title": "Random",
+            "interval": "Interval"
+          },
+          "peak": {
+            "title": "Peak",
+            "easing": "Easing",
+            "easingPlaceholder": "Choose Easing",
+            "start": "Start",
+            "end": "End"
+          },
+          "manual": {
+            "title": "Manual"
+          },
+          "replay": {
+            "title": "Replay",
+            "playId": "Play",
+            "playIdPlaceholder": "Choose Play",
+            "runId": "Run",
+            "runIdPlaceholder": "Choose Run",
+            "timelineId": "Timeline",
+            "timelineIdPlaceholder": "Choose Timeline"
+          },
+          "smartWatch": {
+            "title": "SmartWatch",
+            "uuid": "SmartWatch",
+            "uuidPlaceholder": "Choose SmartWatch"
+          },
+          "ai": {
+            "title": "AI",
+            "playIds": "Plays",
+            "playIdsPlaceholder": "Choose Plays"
+          }
+        }
+      }
+    },
+    "settingsForm": {
+      "title": "Details",
+      "hint": "Here you can edit settings.",
+      "save": "Save",
+      "adminPassword": "Admin Password",
+      "wifiSsid": "WiFi SSID",
+      "wifiPassword": "WiFi Password"
+    },
+    "ratingForm": {
+      "title": "Rate {{title}}",
+      "message": "Message",
+      "score": "Rating",
+      "orgasms": "Orgasms",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "timelineCard": {
+      "stopped": "Stopped"
+    },
+    "userCard": {
+      "orgasms": "Orgasms",
+      "ratings": "Ratings"
+    },
+    "timelineEventChart": {
+      "intensity": "Intensity: {{intensity}}%",
+      "stopped": "Stopped"
+    },
+    "runListCard": {
+      "title": "Recent Runs"
+    },
+    "ratingListCard": {
+      "title": "Recent Ratings"
+    },
+    "timelineListCard": {
+      "title": "Recent Usage"
+    },
+    "manualSatisfier": {
+      "title": "Manual Satisfier",
+      "hint": "You can now control the toy manually. Choose between the different controllers.",
+      "simple": {
+        "title": "Simple",
+        "intensity": "Intensity"
+      },
+      "draw": {
+        "title": "Draw",
+        "color": "Color"
+      }
+    }
+  },
+  "validation": {
+    "settings": {
+      "adminPassword": {
+        "minLength": "Password length must be greater or equal 6.",
+        "maxLength": "Password length must not be greater than 20.",
+        "matches": "Password must contain at least one letter, one number and one special character."
+      }
+    },
+    "user": {
+      "username": {
+        "minLength": "Username length must be greater or equal 6.",
+        "maxLength": "Username length must not be greater than 20.",
+        "notEquals": "Username cannot be \"admin\".",
+        "matches": "Username must not contain special characters."
+      },
+      "password": {
+        "minLength": "Password length must be greater or equal 6.",
+        "maxLength": "Password length must not be greater than 20.",
+        "matches": "Password must contain at least one letter, one number and one special character."
+      },
+      "description": {
+        "isNotEmpty": "Description cannot be empty."
+      },
+      "avatar": {
+        "isNotEmpty": "Avatar cannot be empty."
+      },
+      "gender": {
+        "isEnum": "Gender cannot be empty."
+      }
+    },
+    "toy": {
+      "name": {
+        "isNotEmpty": "Name cannot be empty.",
+        "matches": "Name must contain only word characters and numbers."
+      }
+    },
+    "play": {
+      "name": {
+        "isNotEmpty": "Name cannot be empty.",
+        "matches": "Name must contain only word characters and numbers."
+      },
+      "description": {
+        "isNotEmpty": "Description cannot be empty."
+      },
+      "timelines": {
+        "arrayNotEmpty": "There must be at least one timeline in the list."
+      }
+    },
+    "timeline": {
+      "toy": {
+        "isNotEmpty": "Toy cannot be empty."
+      },
+      "rides": {
+        "arrayNotEmpty": "There must be at least one ride in the timeline."
+      }
+    },
+    "ride": {
+      "index": {
+        "min": "Index must be minimum 0."
+      },
+      "toyAssignment": {
+        "isEnum": "Toy assignment cannot be empty."
+      },
+      "length": {
+        "min": "Length must be minimum 1."
+      },
+      "timeline": {
+        "isNotEmpty": "Timeline cannot be empty."
+      }
+    },
+    "satisfier": {
+      "type": {
+        "isEnum": "Type cannot be empty."
+      },
+      "description": {
+        "isNotEmpty": "Description cannot be empty."
+      },
+      "ride": {
+        "isNotEmpty": "Ride cannot be empty."
+      },
+      "types": {
+        "ai": {
+          "playIds": {
+            "arrayNotEmpty": "There must be at least one play in the list."
+          }
+        },
+        "smartWatch": {
+          "uuid": {
+            "isNotEmpty": "UUID cannot be empty."
+          }
+        },
+        "replay": {
+          "playId": {
+            "isNotEmpty": "Play cannot be empty."
+          },
+          "runId": {
+            "isNotEmpty": "Run cannot be empty."
+          },
+          "timelineId": {
+            "isNotEmpty": "Timeline cannot be empty."
+          }
+        },
+        "random": {
+          "interval": {
+            "min": "Interval must be minimum 5.",
+            "max": "Interval must be maximum 60."
+          }
+        },
+        "peak": {
+          "easing": {
+            "isNotEmpty": "Easing cannot be empty."
+          },
+          "start": {
+            "min": "Interval must be minimum 0.",
+            "max": "Interval must be maximum 10."
+          },
+          "end": {
+            "min": "Interval must be minimum 0.",
+            "max": "Interval must be maximum 10."
+          }
+        }
+      }
+    },
+    "rating": {
+      "score": {
+        "min": "Score must be minimum 0.",
+        "max": "Score must be maximum 1."
+      },
+      "orgasms": {
+        "min": "Orgasms must be minimum 0.",
+        "max": "Orgasms must be maximum 10."
+      },
+      "message": {
+        "isNotEmpty": "Message cannot be empty."
+      }
+    }
+  }
+}

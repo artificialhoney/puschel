@@ -1,0 +1,327 @@
+query FindUsers {
+  findUsers {
+    id
+    username
+    description
+    avatar
+    gender
+    ratings {
+      id
+      date
+      score
+      orgasms
+      message
+      run {
+        id
+        play {
+          id
+          name
+        }
+      }
+    }
+  }
+}
+
+query FindUser($id: Int!) {
+  findUser(id: $id) {
+    id
+    username
+    description
+    avatar
+    gender
+    ratings {
+      id
+      date
+      score
+      orgasms
+      message
+      run {
+        id
+        play {
+          id
+          name
+        }
+      }
+    }
+  }
+}
+
+query FindCurrentUser {
+  findUser: findCurrentUser {
+    id
+    username
+    description
+    avatar
+    gender
+    ratings {
+      id
+      date
+      score
+      orgasms
+      message
+      run {
+        id
+        play {
+          id
+          name
+        }
+      }
+    }
+  }
+}
+
+query FindUserByUsername($username: String!) {
+  findUser: findUserByUsername(username: $username) {
+    id
+    username
+    description
+    avatar
+    gender
+    ratings {
+      id
+      date
+      score
+      orgasms
+      message
+      run {
+        id
+        play {
+          id
+          name
+        }
+      }
+    }
+  }
+}
+
+query FindToys {
+  findToys {
+    id
+    name
+    type
+    uuid
+    timelines {
+      id
+      rides {
+        id
+        index
+        length
+      }
+      play {
+        id
+        name
+      }
+    }
+  }
+}
+
+query FindToy($id: Int!) {
+  findToy(id: $id) {
+    id
+    name
+    type
+    uuid
+    timelines {
+      id
+      rides {
+        id
+        index
+        length
+      }
+      play {
+        id
+        name
+      }
+    }
+  }
+}
+
+query FindToyByName($name: String!) {
+  findToyByName(name: $name) {
+    id
+    name
+    type
+    uuid
+    timelines {
+      id
+      rides {
+        id
+        index
+        length
+      }
+      play {
+        id
+        name
+      }
+    }
+  }
+}
+
+query FindPlays {
+  findPlays {
+    id
+    name
+    description
+    timelines {
+      id
+      toyId
+      rides {
+        id
+        index
+        length
+        enabled
+        satisfier {
+          id
+          type
+          settings
+        }
+      }
+    }
+    runs {
+      id
+      startDate
+      active
+      runTime
+      ratings {
+        id
+        date
+        score
+        orgasms
+        message
+        userId
+      }
+    }
+  }
+}
+
+query FindPlay($id: Int!) {
+  findPlay(id: $id) {
+    id
+    name
+    description
+    timelines {
+      id
+      toyId
+      rides {
+        id
+        index
+        length
+        enabled
+        satisfier {
+          id
+          type
+          settings
+        }
+      }
+    }
+    runs {
+      id
+      startDate
+      active
+      runTime
+      ratings {
+        id
+        date
+        score
+        orgasms
+        message
+        userId
+      }
+    }
+  }
+}
+
+query FindActivePlay {
+  findActivePlay {
+    id
+    name
+    description
+    timelines {
+      id
+      toyId
+      rides {
+        id
+        index
+        length
+        enabled
+        satisfier {
+          id
+          type
+          settings
+        }
+      }
+    }
+    runs {
+      id
+      startDate
+      active
+      runTime
+      ratings {
+        id
+        date
+        score
+        orgasms
+        message
+        userId
+      }
+    }
+  }
+}
+
+query FindPlayByName($name: String!) {
+  findPlayByName(name: $name) {
+    id
+    name
+    description
+    timelines {
+      id
+      toyId
+      rides {
+        id
+        index
+        length
+        enabled
+        satisfier {
+          id
+          type
+          settings
+        }
+      }
+    }
+    runs {
+      id
+      startDate
+      active
+      runTime
+      ratings {
+        id
+        date
+        score
+        orgasms
+        message
+        userId
+      }
+    }
+  }
+}
+
+query FindLastRideEventByRun($id: Int!) {
+  findLastRideEventByRun(id: $id) {
+    id
+    payload
+    date
+  }
+}
+
+query FindSettings {
+  findSettings {
+    wifiSsid
+  }
+}
+
+query FindSmartWatches {
+  findSmartWatches {
+    uuid
+    name
+  }
+}

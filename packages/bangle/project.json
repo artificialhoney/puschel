@@ -1,0 +1,32 @@
+{
+  "name": "bangle",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/bangle/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/bangle",
+        "main": "packages/bangle/src/app.ts",
+        "tsConfig": "packages/bangle/tsconfig.lib.json",
+        "assets": [
+          "packages/bangle/*.md",
+          "packages/bangle/metadata.json",
+          "packages/bangle/app.png",
+          "packages/bangle/*.js"
+        ],
+        "updateBuildableProjectDepsInPackageJson": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/bangle/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

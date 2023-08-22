@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES3",
+    "outDir": "../../dist/out-tsc",
+    "declaration": false,
+    "noImplicitAny": false,
+    "sourceMap": false,
+    "alwaysStrict": false,
+    "typeRoots": ["./types"],
+    "noPropertyAccessFromIndexSignature": false
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"]
+}

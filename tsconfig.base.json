@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@xx/ai": ["packages/ai/src/index.ts"],
+      "@xx/bangle": ["packages/bangle/src/index.ts"],
+      "@xx/cli": ["packages/cli/src/index.ts"],
+      "@xx/core": ["packages/core/src/index.ts"],
+      "@xx/models": ["packages/models/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

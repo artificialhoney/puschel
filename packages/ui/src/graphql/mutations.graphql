@@ -1,0 +1,113 @@
+mutation CreateUser($user: UserDto!) {
+  createUser(user: $user) {
+    id
+    username
+    description
+    avatar
+    gender
+  }
+}
+
+mutation UpdateUser($user: UserDto!) {
+  updateUser(user: $user) {
+    id
+    username
+    description
+    avatar
+    gender
+  }
+}
+
+mutation UpdateToy($toy: ToyDto!) {
+  updateToy(toy: $toy) {
+    id
+    name
+    type
+    uuid
+  }
+}
+
+mutation CreatePlay($play: PlayDto!) {
+  createPlay(play: $play) {
+    id
+    name
+    description
+    timelines {
+      id
+      toyId
+      rides {
+        id
+        index
+        length
+        enabled
+        satisfier {
+          id
+          type
+          settings
+        }
+      }
+    }
+  }
+}
+
+mutation UpdatePlay($play: PlayDto!) {
+  updatePlay(play: $play) {
+    id
+    name
+    description
+    timelines {
+      id
+      toyId
+      rides {
+        id
+        index
+        length
+        enabled
+        satisfier {
+          id
+          type
+          settings
+        }
+      }
+    }
+  }
+}
+
+mutation StartPlay($id: Int!) {
+  startPlay(id: $id) {
+    id
+    name
+    description
+  }
+}
+
+mutation StopPlay($id: Int!) {
+  stopPlay(id: $id) {
+    id
+    name
+    description
+  }
+}
+
+mutation CreateRideEvent($event: RideEventDto!) {
+  createRideEvent(event: $event) {
+    id
+    payload
+    date
+  }
+}
+
+mutation CreateRating($rating: RatingDto!) {
+  createRating(rating: $rating) {
+    id
+    score
+    orgasms
+    message
+  }
+}
+
+mutation UpdateSettings($settings: SettingsDto!) {
+  updateSettings(settings: $settings) {
+    wifiSsid
+  }
+}
