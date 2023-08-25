@@ -2,7 +2,7 @@
   hosts: all
   vars:
     node_version: 16.20.0
-    repo: http://192.168.178.61:4873
+    repo: https://npm.pkg.github.com
 
   tasks:
     - name: Update and upgrade

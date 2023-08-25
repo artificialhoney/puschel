@@ -7,8 +7,7 @@
   "scripts": {
     "prepare": "husky install",
     "gql:compile": "graphql-codegen --config packages/ui/codegen.ts",
-    "gql:watch": "graphql-codegen -w --config packages/ui/codegen.ts",
-    "bangle:copy": "rm -rf ../BangleApps/apps/xx && mkdir -p ../BangleApps/apps/xx && cp dist/packages/bangle/src/*.js dist/packages/bangle/*.js dist/packages/bangle/metadata.json dist/packages/bangle/app.png dist/packages/bangle/README.md ../BangleApps/apps/xx/"
+    "gql:watch": "graphql-codegen -w --config packages/ui/codegen.ts"
   },
   "private": true,
   "devDependencies": {
@@ -148,5 +147,8 @@
       "bash -c \"nx affected:lint --fix --uncommitted\"",
       "bash -c \"nx format:write --uncommitted\""
     ]
+  },
+  "publishConfig": {
+    "@artificialhoney:registry": "https://npm.pkg.github.com"
   }
 }

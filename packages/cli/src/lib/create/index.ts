@@ -20,7 +20,7 @@ export default class Create extends Command {
   static override flags = {
     repo: Flags.string({
       description: 'Repository URL',
-      default: '',
+      default: 'https://npm.pkg.github.com',
     }),
   };
 
