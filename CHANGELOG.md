@@ -1,6 +1,16 @@
 # Changelog
 
-## 1.0.0-rc.5 (2023-08-24)
+## (unreleased)
+
+### Changes
+
+- Cleanup. [Sebastian Krüger]
+
+- Publish workflow. [Sebastian Krüger]
+
+- Cleanup. [Sebastian Krüger]
+
+- .prettierignore. [Sebastian Krüger]
 
 ### Other
 
