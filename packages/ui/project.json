@@ -24,7 +24,7 @@
           },
           {
             "glob": "README.md",
-            "input": "packages/ui",
+            "input": "./",
             "output": "./"
           },
           {

@@ -31,6 +31,6 @@ jobs:
       #       coverage/packages/hub/lcov.info
       #       coverage/packages/models/lcov.info
       #       coverage/packages/ui/lcov.info
-      - run: npx nx run-many -t publish --configuration=production --ver=${{github.ref_name}}
+      - run: npx nx run-many -t publish --configuration=production --ver=${{github.ref_name}} --tag=latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}

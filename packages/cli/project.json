@@ -11,7 +11,15 @@
         "outputPath": "dist/packages/cli",
         "main": "packages/cli/src/index.ts",
         "tsConfig": "packages/cli/tsconfig.lib.json",
-        "assets": ["packages/cli/templates/**/*", "packages/cli/bin/run"]
+        "assets": [
+          "packages/cli/templates/**/*",
+          "packages/cli/bin/run",
+          {
+            "glob": "README.md",
+            "input": "./",
+            "output": "./"
+          }
+        ]
       }
     },
     "publish": {

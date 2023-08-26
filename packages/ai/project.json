@@ -11,7 +11,13 @@
         "outputPath": "dist/packages/ai",
         "main": "packages/ai/src/index.ts",
         "tsConfig": "packages/ai/tsconfig.lib.json",
-        "assets": ["packages/ai/*.md"]
+        "assets": [
+          {
+            "glob": "README.md",
+            "input": "./",
+            "output": "./"
+          }
+        ]
       }
     },
     "publish": {
