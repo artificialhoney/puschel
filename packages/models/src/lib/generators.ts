@@ -1,6 +1,6 @@
-type EasingFunction = (progress: number) => number;
+export type EasingFunction = (progress: number) => number;
 
-interface EasingDictionary {
+export interface EasingDictionary {
   [easing: string]: EasingFunction;
 }
 

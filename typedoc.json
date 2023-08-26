@@ -1,5 +1,10 @@
 {
-  "entryPoints": ["packages/*"],
+  "entryPoints": [
+    "packages/models",
+    "packages/core",
+    "packages/hub",
+    "packages/ai"
+  ],
   "name": "puschel",
   "entryPointStrategy": "packages",
   "includeVersion": true,
