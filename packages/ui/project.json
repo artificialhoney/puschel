@@ -23,6 +23,11 @@
             "output": "./"
           },
           {
+            "glob": "README.md",
+            "input": "packages/ui",
+            "output": "./"
+          },
+          {
             "glob": "*.*",
             "input": "packages/ui/src/public",
             "output": "./"

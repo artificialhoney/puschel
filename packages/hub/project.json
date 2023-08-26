@@ -14,7 +14,14 @@
         "outputPath": "dist/packages/hub",
         "main": "packages/hub/src/main.ts",
         "tsConfig": "packages/hub/tsconfig.app.json",
-        "assets": ["packages/hub/src/assets"],
+        "assets": [
+          "packages/hub/src/assets",
+          {
+            "glob": "README.md",
+            "input": "packages/hub",
+            "output": "./"
+          }
+        ],
         "isolatedConfig": true,
         "webpackConfig": "packages/hub/webpack.config.js"
       },
