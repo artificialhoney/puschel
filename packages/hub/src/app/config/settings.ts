@@ -10,7 +10,7 @@ export default (() => {
   settings.wifiPassword = process.env.WIFI_PASSWORD;
   settings.adminPassword =
     process.env.ADMIN_PASSWORD ||
-    crypto.createHash('md5').update('puschelx').digest('hex');
+    crypto.createHash('md5').update('puschel').digest('hex');
   settings.jwtSecret =
     process.env.JWT_SECRET ||
     crypto.createHash('md5').update('puschel').digest('hex');
