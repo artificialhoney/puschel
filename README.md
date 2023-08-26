@@ -26,3 +26,12 @@ npx nx run-many -t serve -p hub ui
 ```
 
 Visit http://localhost:4200 and login with **admin**:puschel.
+
+## Toys
+
+Following toys are currently supported:
+
+- [Lovense Lush](https://www.lovense.com/bluetooth-remote-control-vibrator)
+- [Fantasy Cup Theodore](https://www.amazon.de/gp/product/B0BQWP7KYC)
+- [Svakom Pulse Union](https://www.svakom.com/products/pulse-union)
+- [Pretty Love](https://prettylove.com/goods.php?id=2913)
