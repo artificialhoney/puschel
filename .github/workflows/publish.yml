@@ -20,6 +20,17 @@ jobs:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
+      # - run: npx nx run-many -t test --configuration=ci --coverage --coverageReporters=lcov
+      # - name: Coveralls
+      #   uses: coverallsapp/github-action@v2
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     files: coverage/packages/ai/lcov.info
+      #       coverage/packages/cli/lcov.info
+      #       coverage/packages/core/lcov.info
+      #       coverage/packages/hub/lcov.info
+      #       coverage/packages/models/lcov.info
+      #       coverage/packages/ui/lcov.info
       - run: npx nx run-many -t publish --configuration=production --ver=${{github.ref_name}}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}

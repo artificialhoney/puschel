@@ -7,7 +7,10 @@ to: package.json
   "private": true,
   "main": "puschel.js",
   "dependencies": {
+    "@puschel/models": "*",
+    "@puschel/core": "*",
     "@puschel/hub": "*",
+    "@puschel/ai": "*",
     "@puschel/ui": "*"
   }
 }

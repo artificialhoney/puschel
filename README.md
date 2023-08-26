@@ -10,6 +10,8 @@ puschel create puschel
 cd puschel && pm2 start
 ```
 
+Visit http://localhost and login with **admin**/_puschel_.
+
 Please see `ansible-playbook playbook.yml` from within the `ansible` directory for more instructions, especially for **Raspberry Pi**.
 
 ## Todo

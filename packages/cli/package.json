@@ -5,8 +5,9 @@
     "puschel": "./bin/run"
   },
   "dependencies": {
-    "@oclif/core": "^2",
-    "@oclif/plugin-help": "^5"
+    "@oclif/core": "^2.8.2",
+    "@oclif/plugin-help": "^5.2.9",
+    "hygen": "^6.2.11"
   },
   "oclif": {
     "bin": "puschel",
@@ -14,13 +15,7 @@
     "commands": "./src/lib",
     "plugins": [
       "@oclif/plugin-help"
-    ],
-    "topicSeparator": " ",
-    "topics": {
-      "hello": {
-        "description": "Say hello to the world and others"
-      }
-    }
+    ]
   },
   "repository": {
     "type": "git",
