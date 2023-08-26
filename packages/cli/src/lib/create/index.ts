@@ -1,4 +1,4 @@
-import { Args, Command, Flags } from '@oclif/core';
+import { Args, Command } from '@oclif/core';
 import chalk from 'chalk';
 import { execSync } from 'child_process';
 import { runner } from 'hygen';
@@ -6,21 +6,14 @@ import * as Logger from 'hygen/dist/logger';
 import { basename, join } from 'path';
 
 export default class Create extends Command {
-  static override description = 'Create XX app';
+  static override description = 'Create puschel app';
 
-  static override examples = [`$ xx create xx-app`];
+  static override examples = [`$ puschel create puschel-app`];
 
   static override args = {
     path: Args.string({
       description: 'Path to app',
       required: true,
-    }),
-  };
-
-  static override flags = {
-    repo: Flags.string({
-      description: 'Repository URL',
-      default: 'https://npm.pkg.github.com',
     }),
   };
 

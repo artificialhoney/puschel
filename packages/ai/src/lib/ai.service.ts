@@ -1,6 +1,6 @@
+import { pinoOptions } from '@puschel/core';
 import { io } from '@tensorflow/tfjs';
 import * as tf from '@tensorflow/tfjs-node';
-import { pinoOptions } from '@xx/core';
 import { pino } from 'pino';
 
 import { makePredictions, trainModel } from './model';

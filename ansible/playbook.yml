@@ -1,8 +1,7 @@
-- name: Roll Out XX
+- name: Roll Out puschel
   hosts: all
   vars:
     node_version: 16.20.0
-    repo: https://npm.pkg.github.com
 
   tasks:
     - name: Update and upgrade
@@ -57,16 +56,10 @@
     - name: Enable pm2
       become: true
       ansible.builtin.shell:
-        cmd: env PATH=$PATH:/home/xx/.nvm/versions/node/v{{ node_version }}/bin /home/xx/.nvm/versions/node/v{{ node_version }}/lib/node_modules/pm2/bin/pm2 startup systemd -u xx --hp /home/xx
+        cmd: env PATH=$PATH:/home/puschel/.nvm/versions/node/v{{ node_version }}/bin /home/puschel/.nvm/versions/node/v{{ node_version }}/lib/node_modules/pm2/bin/pm2 startup systemd -u puschel --hp /home/puschel
         executable: /bin/bash
       register: output
       changed_when: output.rc != 0
-    - name: Setup NPM for @xx
-      ansible.builtin.copy:
-        dest: ~/.npmrc
-        content: |
-          @xx:registry={{ repo }}
-        mode: '0777'
     - name: Disable WiFi power save
       become: true
       ansible.builtin.copy:
@@ -78,14 +71,14 @@
     - name: Setup capabilities
       become: true
       ansible.builtin.shell:
-        cmd: source /home/xx/.nvm/nvm.sh && setcap cap_net_bind_service,cap_net_raw+eip $(eval readlink -f `which node`)
+        cmd: source /home/puschel/.nvm/nvm.sh && setcap cap_net_bind_service,cap_net_raw+eip $(eval readlink -f `which node`)
         executable: /bin/bash
       register: output
       changed_when: output.rc != 0
     - name: Set user group for networking
       become: true
       ansible.builtin.shell:
-        cmd: usermod -a -G netdev xx
+        cmd: usermod -a -G netdev puschel
         executable: /bin/bash
       register: output
       changed_when: output.rc != 0
@@ -100,26 +93,26 @@
       ansible.builtin.systemd:
         name: bluetooth
         state: started
-    - name: Install @xx/cli
+    - name: Install @puschel/cli
       ansible.builtin.shell:
-        cmd: source ~/.nvm/nvm.sh && npm i -g @xx/cli
+        cmd: source ~/.nvm/nvm.sh && npm i -g @puschel/cli
         executable: /bin/bash
       register: output
       changed_when: output.rc != 0
-    - name: Create XX
+    - name: Create puschel
       ansible.builtin.shell:
-        cmd: source ~/.nvm/nvm.sh && xx create xx --repo={{ repo }}
+        cmd: source ~/.nvm/nvm.sh && puschel create puschel
         executable: /bin/bash
       register: output
       changed_when: output.rc != 0
-    - name: Start XX
+    - name: Start puschel
       ansible.builtin.shell:
         cmd: source ~/.nvm/nvm.sh && pm2 start
         executable: /bin/bash
       register: output
       changed_when: output.rc != 0
       args:
-        chdir: xx
+        chdir: puschel
     - name: Save pm2 state
       ansible.builtin.shell:
         cmd: source ~/.nvm/nvm.sh && pm2 save

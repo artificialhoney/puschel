@@ -1,5 +1,5 @@
 import { ArgsType, Field, InputType, Int } from '@nestjs/graphql';
-import * as models from '@xx/models';
+import * as models from '@puschel/models';
 
 import { Timeline } from '../entities/timeline.entity';
 import { TimelineDto } from './timeline.dto';

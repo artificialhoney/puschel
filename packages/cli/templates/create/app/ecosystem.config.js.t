@@ -5,15 +5,15 @@ const path = require('path');
 
 module.exports = {
   apps : [{
-    name: "xx",
-    script: "./xx.js",
+    name: "puschel",
+    script: "./puschel.js",
     env: {
       PORT: 80,
       NODE_ENV: "production",
       STATIC_PATH : path.join(
         __dirname,
         'node_modules',
-        '@xx',
+        '@puschel',
         'ui'
       )
     }

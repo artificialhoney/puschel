@@ -2,12 +2,12 @@
 to: package.json
 ---
 {
-  "name": "xx",
+  "name": "puschel",
   "version": "1.0.0",
   "private": true,
-  "main": "xx.js",
+  "main": "puschel.js",
   "dependencies": {
-    "@xx/hub": "*",
-    "@xx/ui": "*"
+    "@puschel/hub": "*",
+    "@puschel/ui": "*"
   }
 }

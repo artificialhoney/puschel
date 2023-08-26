@@ -1,4 +1,4 @@
-import { SatisfierType } from '@xx/models';
+import { SatisfierType } from '@puschel/models';
 import { useTranslation } from 'react-i18next';
 
 import Card from '../../../../components/card';

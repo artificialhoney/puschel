@@ -82,13 +82,13 @@
       "save": "Save"
     },
     "footer": {
-      "copyright": "XX. All Rights Reserved.",
+      "copyright": "Puschel. All Rights Reserved.",
       "support": "Support",
       "blog": "Blog"
     },
     "sidebar": {
-      "title": "XX",
-      "subtitle": "Love Hub"
+      "title": "Puschel",
+      "subtitle": "Hub"
     },
     "navbar": {
       "pages": "Pages",
@@ -115,8 +115,8 @@
       "gender": "Gender",
       "genderPlaceholder": "Choose Gender",
       "genders": {
-        "xx": {
-          "title": "XX"
+        "puschel": {
+          "title": "puschel"
         },
         "xy": {
           "title": "XY"

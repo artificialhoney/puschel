@@ -1,6 +1,6 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-import * as models from '@xx/models';
-import { SatisfierType } from '@xx/models';
+import * as models from '@puschel/models';
+import { SatisfierType } from '@puschel/models';
 import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 import { jsonFieldMiddleware } from '../middleware/json-field.middleware';

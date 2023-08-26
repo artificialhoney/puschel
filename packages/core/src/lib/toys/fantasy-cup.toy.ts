@@ -1,5 +1,5 @@
 import { Peripheral } from '@abandonware/noble';
-import { ToyAssignment, ToyType } from '@xx/models';
+import { ToyAssignment, ToyType } from '@puschel/models';
 
 import { Toy } from './toy';
 

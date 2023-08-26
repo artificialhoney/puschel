@@ -1,6 +1,6 @@
 import { Field, InputType, Int } from '@nestjs/graphql';
-import * as models from '@xx/models';
-import { SatisfierType } from '@xx/models';
+import * as models from '@puschel/models';
+import { SatisfierType } from '@puschel/models';
 
 @InputType()
 export class SatisfierDto extends models.Satisfier {

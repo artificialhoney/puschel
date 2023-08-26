@@ -1,5 +1,5 @@
+import { Settings as SettingsModel } from '@puschel/models';
 import { useQueryClient } from '@tanstack/react-query';
-import { Settings as SettingsModel } from '@xx/models';
 import { validate } from 'class-validator';
 import { Resolver, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';

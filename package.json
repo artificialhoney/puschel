@@ -1,8 +1,8 @@
 {
-  "name": "xx",
-  "version": "1.0.0-rc.5",
+  "name": "puschel",
+  "version": "1.0.0",
   "repository": {
-    "url": "https://github.com/artificialhoney/xx.git"
+    "url": "https://github.com/artificialhoney/puschel.git"
   },
   "scripts": {
     "prepare": "husky install",
@@ -147,8 +147,5 @@
       "bash -c \"nx affected:lint --fix --uncommitted\"",
       "bash -c \"nx format:write --uncommitted\""
     ]
-  },
-  "publishConfig": {
-    "@artificialhoney:registry": "https://npm.pkg.github.com"
   }
 }

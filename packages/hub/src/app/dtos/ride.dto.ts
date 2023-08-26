@@ -1,5 +1,5 @@
 import { ArgsType, Field, InputType, Int } from '@nestjs/graphql';
-import { ToyAssignment } from '@xx/models';
+import { ToyAssignment } from '@puschel/models';
 
 import { Ride } from '../entities/ride.entity';
 import { Satisfier } from '../entities/satisfier.entity';

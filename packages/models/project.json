@@ -11,8 +11,7 @@
         "outputPath": "dist/packages/models",
         "main": "packages/models/src/index.ts",
         "tsConfig": "packages/models/tsconfig.lib.json",
-        "assets": ["packages/models/*.md"],
-        "updateBuildableProjectDepsInPackageJson": true
+        "assets": ["packages/models/*.md"]
       }
     },
     "publish": {

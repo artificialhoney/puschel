@@ -34,7 +34,7 @@ export default async function bootstrap() {
 
   const port = app.get(ConfigService).get('settings.port');
   http.createServer(server).listen(port);
-  app.get(Logger).log(`xx started on http port [${port}]`);
+  app.get(Logger).log(`puschel started on http port [${port}]`);
 }
 
 bootstrap();

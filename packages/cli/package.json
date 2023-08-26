@@ -1,16 +1,16 @@
 {
-  "name": "@xx/cli",
+  "name": "@puschel/cli",
   "type": "commonjs",
   "bin": {
-    "xx": "./bin/run"
+    "puschel": "./bin/run"
   },
   "dependencies": {
     "@oclif/core": "^2",
     "@oclif/plugin-help": "^5"
   },
   "oclif": {
-    "bin": "xx",
-    "dirname": "xx",
+    "bin": "puschel",
+    "dirname": "puschel",
     "commands": "./src/lib",
     "plugins": [
       "@oclif/plugin-help"
@@ -21,5 +21,15 @@
         "description": "Say hello to the world and others"
       }
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artificialhoney/puschel.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/artificialhoney/puschel/issues"
+  },
+  "homepage": "https://artificialhoney.github.io/puschel",
+  "license": "MIT"
 }

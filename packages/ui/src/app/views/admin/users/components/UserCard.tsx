@@ -1,4 +1,4 @@
-import { UserGender } from '@xx/models';
+import { UserGender } from '@puschel/models';
 import { useTranslation } from 'react-i18next';
 import { MdEditDocument } from 'react-icons/md';
 import { Link } from 'react-router-dom';

@@ -14,7 +14,7 @@ export class UpdateService {
     this.logger.log('Checking for update');
     try {
       const version = JSON.parse(
-        execSync('xx update --check --json', {
+        execSync('puschel update --check --json', {
           stdio: 'inherit',
         }).toString()
       );
@@ -28,7 +28,7 @@ export class UpdateService {
       }
 
       this.logger.log(`Updating app to: v${version.latest}`);
-      const spawn = spawnSync('xx update', { shell: true });
+      const spawn = spawnSync('puschel update', { shell: true });
 
       if (spawn.stderr) {
         throw new Error(spawn.stderr.toString());

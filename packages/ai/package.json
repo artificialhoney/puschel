@@ -1,4 +1,14 @@
 {
-  "name": "@xx/ai",
-  "type": "commonjs"
+  "name": "@puschel/ai",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artificialhoney/puschel.git",
+    "directory": "packages/ai"
+  },
+  "bugs": {
+    "url": "https://github.com/artificialhoney/puschel/issues"
+  },
+  "homepage": "https://artificialhoney.github.io/puschel",
+  "license": "MIT"
 }

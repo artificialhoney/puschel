@@ -14,7 +14,7 @@ export default function Footer() {
           <a
             target="_blank"
             rel="nofollow noreferrer"
-            href="https://artificialhoney.github.io/xx"
+            href="https://artificialhoney.github.io/puschel"
             className="text-sm text-gray-600 hover:text-gray-600 md:text-base lg:text-white lg:hover:text-white"
           >
             {t('components.footer.support')}
@@ -24,7 +24,7 @@ export default function Footer() {
           <a
             target="_blank"
             rel="nofollow noreferrer"
-            href="https://artificialhoney.github.io/xx"
+            href="https://artificialhoney.github.io/puschel"
             className="text-sm text-gray-600 hover:text-gray-600 md:text-base lg:text-white lg:hover:text-white"
           >
             {t('components.footer.blog')}

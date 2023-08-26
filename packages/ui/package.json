@@ -1,3 +1,13 @@
 {
-  "name": "@xx/ui"
+  "name": "@puschel/ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artificialhoney/puschel.git",
+    "directory": "packages/ui"
+  },
+  "bugs": {
+    "url": "https://github.com/artificialhoney/puschel/issues"
+  },
+  "homepage": "https://artificialhoney.github.io/puschel",
+  "license": "MIT"
 }

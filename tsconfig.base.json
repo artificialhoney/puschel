@@ -15,10 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@xx/ai": ["packages/ai/src/index.ts"],
-      "@xx/cli": ["packages/cli/src/index.ts"],
-      "@xx/core": ["packages/core/src/index.ts"],
-      "@xx/models": ["packages/models/src/index.ts"]
+      "@puschel/ai": ["packages/ai/src/index.ts"],
+      "@puschel/cli": ["packages/cli/src/index.ts"],
+      "@puschel/core": ["packages/core/src/index.ts"],
+      "@puschel/models": ["packages/models/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

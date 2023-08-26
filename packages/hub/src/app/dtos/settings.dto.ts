@@ -1,5 +1,5 @@
 import { ArgsType, Field, InputType } from '@nestjs/graphql';
-import * as models from '@xx/models';
+import * as models from '@puschel/models';
 
 @InputType()
 @ArgsType()

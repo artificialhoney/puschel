@@ -1,8 +1,8 @@
 ==========================
-xx
+puschel
 ==========================
 
-This is the documentation of **xx**.
+This is the documentation of **puschel**.
 
 
 Contents

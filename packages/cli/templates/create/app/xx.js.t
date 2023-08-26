@@ -1,4 +1,4 @@
 ---
-to: xx.js
+to: puschel.js
 ---
-require('@xx/hub');
+require('@puschel/hub');

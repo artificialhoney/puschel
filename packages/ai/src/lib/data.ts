@@ -1,4 +1,4 @@
-import { RideEvent } from '@xx/models';
+import { RideEvent } from '@puschel/models';
 
 export class RideEventData {
   constructor(public readonly data: { timestamp: Date; value: number }[]) {}

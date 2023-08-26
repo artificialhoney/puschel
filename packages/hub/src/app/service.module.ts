@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AiService } from '@xx/ai';
-import { SmartWatchService, ToyService as BleToyService } from '@xx/core';
+import { AiService } from '@puschel/ai';
+import { SmartWatchService, ToyService as BleToyService } from '@puschel/core';
 
 import { Play } from './entities/play.entity';
 import { Rating } from './entities/rating.entity';

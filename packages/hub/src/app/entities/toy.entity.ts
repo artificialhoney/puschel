@@ -1,6 +1,6 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-import * as models from '@xx/models';
-import { ToyType } from '@xx/models';
+import * as models from '@puschel/models';
+import { ToyType } from '@puschel/models';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 import { Timeline } from './timeline.entity';

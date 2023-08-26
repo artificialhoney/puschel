@@ -3,7 +3,7 @@ import {
   SatisfierType,
   Timeline as TimelineModel,
   ToyAssignment,
-} from '@xx/models';
+} from '@puschel/models';
 import { validate } from 'class-validator';
 import { createRef, useEffect, useState } from 'react';
 import { Controller, Resolver, useFieldArray, useForm } from 'react-hook-form';

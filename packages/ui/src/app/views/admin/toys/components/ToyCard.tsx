@@ -1,6 +1,6 @@
 import '../../../../i18n/config';
 
-import { ToyType } from '@xx/models';
+import { ToyType } from '@puschel/models';
 import { useTranslation } from 'react-i18next';
 import { MdEditDocument } from 'react-icons/md';
 import { Link } from 'react-router-dom';

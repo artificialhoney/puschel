@@ -1,4 +1,4 @@
-import { Rating as RatingModel } from '@xx/models';
+import { Rating as RatingModel } from '@puschel/models';
 import { validate } from 'class-validator';
 import { Controller, Resolver, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';

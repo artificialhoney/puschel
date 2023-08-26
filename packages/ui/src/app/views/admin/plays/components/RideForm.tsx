@@ -9,7 +9,7 @@ import {
   SatisfierType,
   SmartWatchSatisfier,
   ToyCapabilities,
-} from '@xx/models';
+} from '@puschel/models';
 import { validate } from 'class-validator';
 import { useEffect } from 'react';
 import { Controller, Resolver, useForm } from 'react-hook-form';

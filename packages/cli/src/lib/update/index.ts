@@ -4,9 +4,9 @@ import { execSync, spawnSync } from 'child_process';
 import path from 'path';
 
 export default class Update extends Command {
-  static override description = 'Update XX app';
+  static override description = 'Update puschel app';
 
-  static override examples = [`$ xx update xx-app`];
+  static override examples = [`$ puschel update puschel-app`];
 
   static override args = {
     path: Args.string({
@@ -35,22 +35,22 @@ export default class Update extends Command {
   private async update(args: any, flags: any) {
     if (flags.check) {
       const out = JSON.parse(
-        spawnSync('npm outdated @xx/hub --json', {
+        spawnSync('npm outdated @puschel/hub --json', {
           cwd: args.path,
           shell: true,
         }).stdout.toString()
       );
       if (flags.json) {
         const json = {
-          current: out['@xx/hub']?.current,
-          latest: out['@xx/hub']?.latest,
+          current: out['@puschel/hub']?.current,
+          latest: out['@puschel/hub']?.latest,
         };
 
         if (!json.latest) {
           const pkg = require(path.join(
             path.resolve(args.path),
             'node_modules',
-            '@xx',
+            '@puschel',
             'hub',
             'package.json'
           ));
@@ -59,21 +59,23 @@ export default class Update extends Command {
         this.log(JSON.stringify(json, undefined, 2));
         return;
       }
-      if (out['@xx/hub']?.latest) {
+      if (out['@puschel/hub']?.latest) {
         this.log(
           `New version available: ${chalk.greenBright.bold(
-            out['@xx/hub'].latest
+            out['@puschel/hub'].latest
           )}`
         );
         this.log(
-          `Run ${chalk.magentaBright.bold('xx update ' + args.path)} to update`
+          `Run ${chalk.magentaBright.bold(
+            'puschel update ' + args.path
+          )} to update`
         );
       } else {
         this.log(`App already up to date`);
       }
     } else {
       execSync('npm update', { cwd: args.path, stdio: 'inherit' });
-      execSync('pm2 restart xx', { cwd: args.path, stdio: 'inherit' });
+      execSync('pm2 restart puschel', { cwd: args.path, stdio: 'inherit' });
 
       this.log(`${chalk.magentaBright.bold(args.path)} updated successfully`);
     }

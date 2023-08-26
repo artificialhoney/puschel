@@ -1,5 +1,5 @@
+import { Toy as ToyModel } from '@puschel/models';
 import { useQueryClient } from '@tanstack/react-query';
-import { Toy as ToyModel } from '@xx/models';
 import { validate } from 'class-validator';
 import { Resolver, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';

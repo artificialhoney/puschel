@@ -1,5 +1,5 @@
 import { Characteristic, Peripheral } from '@abandonware/noble';
-import { RideEvent, ToyAssignment, ToyType } from '@xx/models';
+import { RideEvent, ToyAssignment, ToyType } from '@puschel/models';
 
 export abstract class Toy {
   static NAME_REGEX = '';

@@ -5,7 +5,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { JwtModule } from '@nestjs/jwt';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import { pinoOptions } from '@xx/core';
+import { pinoOptions } from '@puschel/core';
 import { ConfigModule, ConfigService } from 'nestjs-config';
 import { LoggerModule } from 'nestjs-pino';
 import path from 'path';

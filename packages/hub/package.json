@@ -1,9 +1,19 @@
 {
-  "name": "@xx/hub",
+  "name": "@puschel/hub",
   "main": "./src/main.js",
   "dependencies": {
     "better-sqlite3": "^8.3.0",
     "class-transformer": "^0.5.1",
     "graphql-type-json": "^0.3.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artificialhoney/puschel.git",
+    "directory": "packages/hub"
+  },
+  "bugs": {
+    "url": "https://github.com/artificialhoney/puschel/issues"
+  },
+  "homepage": "https://artificialhoney.github.io/puschel",
+  "license": "MIT"
 }

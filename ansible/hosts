@@ -1,7 +1,7 @@
 [local]
-xx.local
+puschel.local
 
 [all:vars]
 ansible_connection=ssh
-ansible_user=xx
-ansible_ssh_pass=xxx
+ansible_user=puschel
+ansible_ssh_pass=puschelx

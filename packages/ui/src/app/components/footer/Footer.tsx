@@ -17,7 +17,7 @@ const Footer = () => {
             <a
               target="_blank"
               rel="nofollow noreferrer"
-              href="https://artificialhoney.github.io/xx"
+              href="https://artificialhoney.github.io/puschel"
               className="text-sm text-gray-600 hover:text-gray-600 md:text-base dark:text-white dark:hover:text-white"
             >
               {t('components.footer.support')}
@@ -27,7 +27,7 @@ const Footer = () => {
             <a
               target="_blank"
               rel="nofollow noreferrer"
-              href="https://artificialhoney.github.io/xx"
+              href="https://artificialhoney.github.io/puschel"
               className="text-sm text-gray-600 hover:text-gray-600 md:text-base dark:text-white dark:hover:text-white"
             >
               {t('components.footer.blog')}

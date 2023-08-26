@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Toy as BleToy, ToyService as BleToyService } from '@xx/core';
+import { Toy as BleToy, ToyService as BleToyService } from '@puschel/core';
 import { Repository } from 'typeorm';
 
 import { Toy } from '../entities/toy.entity';

@@ -1,5 +1,5 @@
+import { User as UserModel, UserGender } from '@puschel/models';
 import { useQueryClient } from '@tanstack/react-query';
-import { User as UserModel, UserGender } from '@xx/models';
 import { validate } from 'class-validator';
 import { Controller, Resolver, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';

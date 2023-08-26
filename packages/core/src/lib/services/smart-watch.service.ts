@@ -24,8 +24,8 @@ export interface SmartWatchEvent {
 
 export class SmartWatchService extends BleService {
   static EVENT_NAME = 'smartWatch';
-  static XX_SERVICE_NAME = 'XX';
-  static XX_SERVICE_ID = '1801';
+  static puschel_SERVICE_NAME = 'puschel';
+  static puschel_SERVICE_ID = '1801';
 
   public readonly smartWatches: Map<string, Peripheral> = new Map<
     string,
@@ -34,7 +34,7 @@ export class SmartWatchService extends BleService {
 
   protected onDiscover(peripheral: Peripheral) {
     const name = peripheral.advertisement.localName?.trim();
-    if (SmartWatchService.XX_SERVICE_NAME !== name) {
+    if (SmartWatchService.puschel_SERVICE_NAME !== name) {
       return;
     }
     if (!this.smartWatches.has(peripheral.uuid)) {
@@ -47,7 +47,7 @@ export class SmartWatchService extends BleService {
       this.smartWatches.set(peripheral.uuid, peripheral);
     }
     const data = peripheral.advertisement.serviceData?.find(
-      (d) => d.uuid === SmartWatchService.XX_SERVICE_ID
+      (d) => d.uuid === SmartWatchService.puschel_SERVICE_ID
     )?.data;
 
     if (!data) {

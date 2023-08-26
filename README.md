@@ -1,16 +1,16 @@
-# xx
+# puschel
 
 IoT system to control BLE love toys and much more.
 
-## Development
+## Installation
 
-### Application
+```bash
+npm i -g @puschel/cli pm2
+puschel create puschel
+cd puschel && pm2 start
+```
 
-Run `nx serve hub` to serve the backend and `nx serve ui` for the frontend. All API requests will be proxied.
-
-### Raspberry Pi
-
-Run `ansible-playbook playbook.yml` from within the `ansible` directory to deploy the app.
+Please see `ansible-playbook playbook.yml` from within the `ansible` directory for more instructions, especially for **Raspberry Pi**.
 
 ## Todo
 

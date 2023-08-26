@@ -1,6 +1,6 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-import * as models from '@xx/models';
-import { UserGender } from '@xx/models';
+import * as models from '@puschel/models';
+import { UserGender } from '@puschel/models';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 import { Rating } from './rating.entity';

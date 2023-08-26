@@ -1,5 +1,5 @@
 import { Peripheral } from '@abandonware/noble';
-import { ToyType } from '@xx/models';
+import { ToyType } from '@puschel/models';
 
 import { FantasyCupToy } from '../toys/fantasy-cup.toy';
 import { JeffersonToy } from '../toys/jefferson.toy';

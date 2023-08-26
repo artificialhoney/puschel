@@ -16,8 +16,7 @@
         "tsConfig": "packages/hub/tsconfig.app.json",
         "assets": ["packages/hub/src/assets"],
         "isolatedConfig": true,
-        "webpackConfig": "packages/hub/webpack.config.js",
-        "updateBuildableProjectDepsInPackageJson": true
+        "webpackConfig": "packages/hub/webpack.config.js"
       },
       "configurations": {
         "development": {},
@@ -38,6 +37,10 @@
           "buildTarget": "hub:build:production"
         }
       }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs hub {args.ver} {args.tag}",
+      "dependsOn": ["build"]
     },
     "lint": {
       "executor": "@nx/linter:eslint",

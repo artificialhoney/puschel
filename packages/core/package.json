@@ -1,5 +1,15 @@
 {
-  "name": "@xx/core",
+  "name": "@puschel/core",
   "version": "0.0.1",
-  "type": "commonjs"
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artificialhoney/puschel.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/artificialhoney/puschel/issues"
+  },
+  "homepage": "https://artificialhoney.github.io/puschel",
+  "license": "MIT"
 }

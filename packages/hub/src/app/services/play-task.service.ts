@@ -1,14 +1,14 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
-import { AiService, RideEventData } from '@xx/ai';
+import { AiService, RideEventData } from '@puschel/ai';
 import {
   SmartWatchEvent,
   SmartWatchService,
   Toy,
   ToyService as BleToyService,
-} from '@xx/core';
-import { generateFromHeartRate, SatisfierType } from '@xx/models';
-import { generatePeak, generateRandom } from '@xx/models';
+} from '@puschel/core';
+import { generateFromHeartRate, SatisfierType } from '@puschel/models';
+import { generatePeak, generateRandom } from '@puschel/models';
 
 import { Ride } from '../entities/ride.entity';
 import { RideEvent } from '../entities/ride-event.entity';

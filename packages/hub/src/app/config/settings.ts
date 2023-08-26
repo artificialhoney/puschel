@@ -1,4 +1,4 @@
-import { Settings } from '@xx/models';
+import { Settings } from '@puschel/models';
 import * as crypto from 'crypto';
 
 export default (() => {
@@ -10,9 +10,9 @@ export default (() => {
   settings.wifiPassword = process.env.WIFI_PASSWORD;
   settings.adminPassword =
     process.env.ADMIN_PASSWORD ||
-    crypto.createHash('md5').update('xxx').digest('hex');
+    crypto.createHash('md5').update('puschelx').digest('hex');
   settings.jwtSecret =
     process.env.JWT_SECRET ||
-    crypto.createHash('md5').update('xx').digest('hex');
+    crypto.createHash('md5').update('puschel').digest('hex');
   return settings;
 })();

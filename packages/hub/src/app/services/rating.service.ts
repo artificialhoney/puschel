@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Run } from '@xx/models';
+import { Run } from '@puschel/models';
 import { Repository } from 'typeorm';
 
 import { Rating } from '../entities/rating.entity';

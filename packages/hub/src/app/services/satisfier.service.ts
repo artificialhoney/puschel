@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { SmartWatchService } from '@xx/core';
+import { SmartWatchService } from '@puschel/core';
 import { Repository } from 'typeorm';
 
 import { Ride } from '../entities/ride.entity';
