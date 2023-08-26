@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2 (2023-08-26)
+
+### Other
+
+- Docs: common readme. [Sebastian Krüger]
+
 ## 1.0.1 (2023-08-26)
 
 ### Fix
@@ -7,6 +13,8 @@
 - Cli deps. [Sebastian Krüger]
 
 ### Changes
+
+- Changelog. [Sebastian Krüger]
 
 - Conventional commits commit hook. [Sebastian Krüger]
 
