@@ -1,6 +1,26 @@
 # Changelog
 
+## 1.0.3 (2023-08-27)
+
+### Fix
+
+- Jefferson export. [Sebastian Krüger]
+
+### Changes
+
+- Setup testing and proper typedoc. [Sebastian Krüger]
+
+### Other
+
+- Docs: graphql schema description. [Sebastian Krüger]
+
+- Docs: readme. [Sebastian Krüger]
+
 ## 1.0.2 (2023-08-26)
+
+### Changes
+
+- Changelog. [Sebastian Krüger]
 
 ### Other
 
