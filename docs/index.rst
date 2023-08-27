@@ -14,7 +14,7 @@ Contents
    Overview <readme>
    License <license>
    Changelog <changelog>
-   Module Reference <api>
+   GraphQL API <api>
 
 
 Indices and tables

@@ -1,25 +1,27 @@
-import { ArgsType, Field, InputType, Int } from '@nestjs/graphql';
+import { ArgsType, InputType, Int } from '@nestjs/graphql';
 import * as models from '@puschel/models';
 import { UserGender } from '@puschel/models';
+
+import { DtoField } from '../decorators/dto-field.decorator';
 
 @InputType()
 @ArgsType()
 export class UserDto extends models.User {
-  @Field(() => Int, { nullable: true })
+  @DtoField(() => Int, { nullable: true })
   id: number;
 
-  @Field()
+  @DtoField()
   username: string;
 
-  @Field()
+  @DtoField()
   description: string;
 
-  @Field()
+  @DtoField()
   password: string;
 
-  @Field()
+  @DtoField()
   avatar: string;
 
-  @Field(() => String)
+  @DtoField(() => String)
   gender: UserGender;
 }

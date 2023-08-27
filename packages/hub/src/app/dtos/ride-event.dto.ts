@@ -1,9 +1,11 @@
-import { ArgsType, Field, InputType } from '@nestjs/graphql';
+import { ArgsType, InputType } from '@nestjs/graphql';
 import * as models from '@puschel/models';
+
+import { DtoField } from '../decorators/dto-field.decorator';
 
 @InputType()
 @ArgsType()
 export class RideEventDto extends models.RideEvent {
-  @Field(() => Object, { nullable: true })
+  @DtoField(() => Object, { nullable: true })
   payload?: any;
 }

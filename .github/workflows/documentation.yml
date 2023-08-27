@@ -39,10 +39,9 @@ jobs:
         uses: actions/setup-python@v3
       - name: Install dependencies
         run: |
-          pip install -r docs/requirements.txt && npm i
+          pip install -r docs/requirements.txt
       - name: Sphinx build
         run: |
-          npx typedoc
           make -C docs html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2

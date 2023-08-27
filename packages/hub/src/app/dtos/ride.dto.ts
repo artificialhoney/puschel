@@ -1,6 +1,7 @@
-import { ArgsType, Field, InputType, Int } from '@nestjs/graphql';
+import { ArgsType, InputType, Int } from '@nestjs/graphql';
 import { ToyAssignment } from '@puschel/models';
 
+import { DtoField } from '../decorators/dto-field.decorator';
 import { Ride } from '../entities/ride.entity';
 import { Satisfier } from '../entities/satisfier.entity';
 import { SatisfierDto } from './satisfier.dto';
@@ -8,24 +9,24 @@ import { SatisfierDto } from './satisfier.dto';
 @InputType()
 @ArgsType()
 export class RideDto extends Ride {
-  @Field(() => Int, { nullable: true })
+  @DtoField(() => Int, { nullable: true })
   id: number;
 
-  @Field(() => Boolean)
+  @DtoField(() => Boolean)
   enabled: boolean;
 
-  @Field(() => String)
+  @DtoField(() => String)
   toyAssignment: ToyAssignment;
 
-  @Field(() => Int)
+  @DtoField(() => Int)
   index: number;
 
-  @Field(() => Int)
+  @DtoField(() => Int)
   length: number;
 
-  @Field(() => SatisfierDto)
+  @DtoField(() => SatisfierDto)
   satisfier: Satisfier;
 
-  @Field(() => Int, { nullable: true })
+  @DtoField(() => Int, { nullable: true })
   timelineId: number;
 }

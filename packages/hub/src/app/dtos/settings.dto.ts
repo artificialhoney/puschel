@@ -1,15 +1,17 @@
-import { ArgsType, Field, InputType } from '@nestjs/graphql';
+import { ArgsType, InputType } from '@nestjs/graphql';
 import * as models from '@puschel/models';
+
+import { DtoField } from '../decorators/dto-field.decorator';
 
 @InputType()
 @ArgsType()
 export class SettingsDto extends models.Settings {
-  @Field()
+  @DtoField()
   adminPassword: string;
 
-  @Field()
+  @DtoField()
   wifiSsid: string;
 
-  @Field()
+  @DtoField()
   wifiPassword: string;
 }

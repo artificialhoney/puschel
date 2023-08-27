@@ -1,15 +1,17 @@
-import { Field, InputType, Int } from '@nestjs/graphql';
+import { InputType, Int } from '@nestjs/graphql';
 import * as models from '@puschel/models';
 import { SatisfierType } from '@puschel/models';
 
+import { DtoField } from '../decorators/dto-field.decorator';
+
 @InputType()
 export class SatisfierDto extends models.Satisfier {
-  @Field(() => Int, { nullable: true })
+  @DtoField(() => Int, { nullable: true })
   id: number;
 
-  @Field(() => String)
+  @DtoField(() => String)
   type: SatisfierType;
 
-  @Field(() => Object, { nullable: true })
+  @DtoField(() => Object, { nullable: true })
   settings?: any;
 }

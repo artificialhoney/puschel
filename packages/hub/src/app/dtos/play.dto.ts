@@ -1,21 +1,22 @@
-import { ArgsType, Field, InputType, Int } from '@nestjs/graphql';
+import { ArgsType, InputType, Int } from '@nestjs/graphql';
 import * as models from '@puschel/models';
 
+import { DtoField } from '../decorators/dto-field.decorator';
 import { Timeline } from '../entities/timeline.entity';
 import { TimelineDto } from './timeline.dto';
 
 @InputType()
 @ArgsType()
 export class PlayDto extends models.Play {
-  @Field(() => Int, { nullable: true })
+  @DtoField(() => Int, { nullable: true })
   id: number;
 
-  @Field()
+  @DtoField()
   name: string;
 
-  @Field()
+  @DtoField()
   description: string;
 
-  @Field(() => [TimelineDto])
+  @DtoField(() => [TimelineDto])
   timelines: Timeline[];
 }
