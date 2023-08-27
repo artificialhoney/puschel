@@ -1,4 +1,8 @@
-# GraphQL API
+# API
+
+puschel provides a **GraphQL API** for thirs-party integrations.
+
+## Authorization
 
 For API requests you need to be authorized. Use the `/auth/login` endpoint via **POST** and a JSON body like:
 

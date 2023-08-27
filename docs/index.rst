@@ -12,9 +12,10 @@ Contents
    :maxdepth: 2
 
    Overview <readme>
+   API <api>
    License <license>
+   Authors <authors>
    Changelog <changelog>
-   GraphQL API <api>
 
 
 Indices and tables

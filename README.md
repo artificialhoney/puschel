@@ -1,6 +1,6 @@
 # puschel
 
-IoT system to control BLE love toys and much more.
+IoT system to control BLE love toys and much more like an **GraphQL API** for thirs-party integrations.
 
 Read more: [https://artificialhoney.github.io/puschel/](https://artificialhoney.github.io/puschel/)
 
@@ -36,8 +36,4 @@ Following toys are currently supported:
 - [Lovense Lush](https://www.lovense.com/bluetooth-remote-control-vibrator)
 - [Fantasy Cup Theodore](https://www.amazon.de/gp/product/B0BQWP7KYC)
 - [Svakom Pulse Union](https://www.svakom.com/products/pulse-union)
-- [Pretty Love](https://prettylove.com/goods.php?id=2913)
-
-## GraphQL API
-
-See [https://artificialhoney.github.io/puschel/api](https://artificialhoney.github.io/puschel/api).
+- [Pretty Love Jefferson](https://prettylove.com/goods.php?id=2913)
