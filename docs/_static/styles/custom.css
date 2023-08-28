@@ -8,7 +8,7 @@ a {
   text-decoration: none;
 }
 
-table {
+#api table {
   min-width: 100%;
   border-collapse: collapse;
   border-radius: 0.2rem;
@@ -16,19 +16,22 @@ table {
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.05),
     0 0 0.0625rem rgba(0, 0, 0, 0.1);
   margin-bottom: 2.5rem;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
-table td,
-table th {
+#api table td,
+#api table th {
   border-bottom: 1px solid var(--color-table-border);
   padding: 0.5rem;
 }
 
-table td {
+#api table td {
   border-left: 1px solid var(--color-table-border);
   border-right: 1px solid var(--color-table-border);
 }
 
-table td p {
+#api table td p {
   margin: 0;
 }

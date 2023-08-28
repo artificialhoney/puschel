@@ -938,7 +938,7 @@ Validation: [isNotEmpty]
 <td valign="top"><a href="#string">String</a>!</td>
 <td>
 
-Validation: [isEnum: (vibrate,warm,push,electrify,pattern)]
+Validation: [isEnum: (vibrate, warm, push, electrify, pattern)]
 
 </td>
 </tr>
@@ -1017,7 +1017,7 @@ Validation: [isNotEmpty]
 <td valign="top"><a href="#string">String</a>!</td>
 <td>
 
-Validation: [isEnum: (random,peak,manual,replay,smartWatch,ai)]
+Validation: [isEnum: (random, peak, manual, replay, smartWatch, ai)]
 
 </td>
 </tr>
@@ -1188,7 +1188,7 @@ Validation: [isNotEmpty]
 <td valign="top"><a href="#string">String</a>!</td>
 <td>
 
-Validation: [isEnum: (xx,xy)]
+Validation: [isEnum: (xx, xy)]
 
 </td>
 </tr>
