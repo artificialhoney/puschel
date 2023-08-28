@@ -1,8 +1,8 @@
 import { Field, FieldOptions, ReturnTypeFunc } from '@nestjs/graphql';
 import { getMetadataStorage } from 'class-validator';
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 function getValidationConstraints(
+  // eslint-disable-next-line @typescript-eslint/ban-types
   targetConstructor: Function,
   propertyKey: string
 ) {
@@ -20,7 +20,9 @@ function getValidationConstraints(
     .map((v) => {
       if (v.constraints && v.constraints.length > 0) {
         const c = v.constraints[0];
-        return `${v.name}: (${typeof c === 'object' ? Object.values(c) : c})`;
+        return `${v.name}: (${
+          typeof c === 'object' ? Object.values(c).join(', ') : c
+        })`;
       } else {
         return v.name;
       }
