@@ -1,6 +1,6 @@
 import { ValidationError } from 'class-validator';
 import { formatDistance, formatDuration, intervalToDuration } from 'date-fns';
-import format from 'date-fns/format';
+import { format } from 'date-fns/format';
 import * as dateLocales from 'date-fns/locale';
 
 import { Play, Rating, Ride, RideDto, Run, Timeline } from './gql';
@@ -36,7 +36,7 @@ export const dataSource = () => ({
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${localStorage.getItem(
-        LOCAL_STORAGE_ACCESS_TOKEN_KEY
+        LOCAL_STORAGE_ACCESS_TOKEN_KEY,
       )}`,
     },
   },
@@ -53,7 +53,7 @@ export const logout = () => {
 
 export const transformValidationErrors = (
   errors: ValidationError[],
-  paths: string[] = []
+  paths: string[] = [],
 ) => {
   let result = {};
 
@@ -63,7 +63,7 @@ export const transformValidationErrors = (
         ...result,
         ...transformValidationErrors(
           error.children,
-          paths.concat([error.property])
+          paths.concat([error.property]),
         ),
       };
     }
@@ -87,7 +87,7 @@ export const playDuration = (locale: string, ...timelines: Timeline[]) => {
     Math.max(...timelines!.map((t) => ridesOverallLength(t.rides!))),
     {
       locale: dateLocales[locale],
-    }
+    },
   );
 };
 
@@ -108,7 +108,7 @@ export const formatTimelineTick = (value) => {
 export const formatTimelineRemainingTime = (
   length,
   runTime,
-  locale: string
+  locale: string,
 ) => {
   const duration = intervalToDuration({ start: runTime, end: length });
 
@@ -149,7 +149,7 @@ export const ridesToIntervals = (rides: (Ride | RideDto)[]) => {
 
 export const intervalsToRides = (
   intervals: number[],
-  oldRides: (Ride | RideDto)[]
+  oldRides: (Ride | RideDto)[],
 ) => {
   const rides = [...oldRides];
   oldRides.forEach((r, i) => {

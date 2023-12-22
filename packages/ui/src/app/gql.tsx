@@ -1,7 +1,7 @@
 import {
   useMutation,
-  UseMutationOptions,
   useQuery,
+  UseMutationOptions,
   UseQueryOptions,
 } from '@tanstack/react-query';
 export type Maybe<T> = T | null;
@@ -15,12 +15,21 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
   [SubKey in K]: Maybe<T[SubKey]>;
 };
+export type MakeEmpty<
+  T extends { [key: string]: unknown },
+  K extends keyof T,
+> = { [_ in K]?: never };
+export type Incremental<T> =
+  | T
+  | {
+      [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never;
+    };
 
 function fetcher<TData, TVariables>(
   endpoint: string,
   requestInit: RequestInit,
   query: string,
-  variables?: TVariables
+  variables?: TVariables,
 ) {
   return async (): Promise<TData> => {
     const res = await fetch(endpoint, {
@@ -42,15 +51,15 @@ function fetcher<TData, TVariables>(
 }
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: string;
-  String: string;
-  Boolean: boolean;
-  Int: number;
-  Float: number;
+  ID: { input: string; output: string };
+  String: { input: string; output: string };
+  Boolean: { input: boolean; output: boolean };
+  Int: { input: number; output: number };
+  Float: { input: number; output: number };
   /** A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format. */
-  DateTime: any;
+  DateTime: { input: any; output: any };
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
-  JSON: any;
+  JSON: { input: any; output: any };
 };
 
 export type Mutation = {
@@ -87,23 +96,23 @@ export type MutationCreateUserArgs = {
 };
 
 export type MutationDeletePlayArgs = {
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 };
 
 export type MutationDeleteRatingArgs = {
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 };
 
 export type MutationDeleteUserArgs = {
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 };
 
 export type MutationStartPlayArgs = {
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 };
 
 export type MutationStopPlayArgs = {
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 };
 
 export type MutationUpdatePlayArgs = {
@@ -124,17 +133,20 @@ export type MutationUpdateUserArgs = {
 
 export type Play = {
   __typename?: 'Play';
-  description?: Maybe<Scalars['String']>;
-  id: Scalars['Int'];
-  name?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
+  name?: Maybe<Scalars['String']['output']>;
   runs?: Maybe<Array<Run>>;
   timelines?: Maybe<Array<Timeline>>;
 };
 
 export type PlayDto = {
-  description: Scalars['String'];
-  id?: InputMaybe<Scalars['Int']>;
-  name: Scalars['String'];
+  /** Validation: [isNotEmpty] */
+  description: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Validation: [matches: (^[\d\w ]+$), isNotEmpty] */
+  name: Scalars['String']['input'];
+  /** Validation: [arrayNotEmpty, isArray] */
   timelines: Array<TimelineDto>;
 };
 
@@ -168,198 +180,216 @@ export type Query = {
 };
 
 export type QueryFindLastRideEventByRunArgs = {
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 };
 
 export type QueryFindPlayArgs = {
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 };
 
 export type QueryFindPlayByNameArgs = {
-  name: Scalars['String'];
+  name: Scalars['String']['input'];
 };
 
 export type QueryFindRatingArgs = {
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 };
 
 export type QueryFindRideArgs = {
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 };
 
 export type QueryFindRideEventArgs = {
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 };
 
 export type QueryFindRunArgs = {
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 };
 
 export type QueryFindRunsByPlayArgs = {
-  name: Scalars['String'];
+  name: Scalars['String']['input'];
 };
 
 export type QueryFindSatisfierArgs = {
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 };
 
 export type QueryFindToyArgs = {
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 };
 
 export type QueryFindToyByNameArgs = {
-  name: Scalars['String'];
+  name: Scalars['String']['input'];
 };
 
 export type QueryFindUserArgs = {
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 };
 
 export type QueryFindUserByUsernameArgs = {
-  username: Scalars['String'];
+  username: Scalars['String']['input'];
 };
 
 export type Rating = {
   __typename?: 'Rating';
-  date?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
-  message?: Maybe<Scalars['String']>;
-  orgasms?: Maybe<Scalars['Int']>;
-  playId?: Maybe<Scalars['Int']>;
+  date?: Maybe<Scalars['DateTime']['output']>;
+  id: Scalars['Int']['output'];
+  message?: Maybe<Scalars['String']['output']>;
+  orgasms?: Maybe<Scalars['Int']['output']>;
+  playId?: Maybe<Scalars['Int']['output']>;
   run?: Maybe<Run>;
-  score?: Maybe<Scalars['Float']>;
+  score?: Maybe<Scalars['Float']['output']>;
   user?: Maybe<User>;
-  userId?: Maybe<Scalars['Int']>;
+  userId?: Maybe<Scalars['Int']['output']>;
 };
 
 export type RatingDto = {
-  message: Scalars['String'];
-  orgasms: Scalars['Int'];
-  runId: Scalars['Int'];
-  score: Scalars['Float'];
+  /** Validation: [isNotEmpty] */
+  message: Scalars['String']['input'];
+  /** Validation: [max: (10), min: (0)] */
+  orgasms: Scalars['Int']['input'];
+  runId: Scalars['Int']['input'];
+  /** Validation: [max: (1), min: (0)] */
+  score: Scalars['Float']['input'];
 };
 
 export type Ride = {
   __typename?: 'Ride';
-  enabled?: Maybe<Scalars['Boolean']>;
-  id: Scalars['Int'];
-  index?: Maybe<Scalars['Int']>;
-  length?: Maybe<Scalars['Int']>;
+  enabled?: Maybe<Scalars['Boolean']['output']>;
+  id: Scalars['Int']['output'];
+  index?: Maybe<Scalars['Int']['output']>;
+  length?: Maybe<Scalars['Int']['output']>;
   satisfier?: Maybe<Satisfier>;
   timeline?: Maybe<Timeline>;
-  type?: Maybe<Scalars['String']>;
+  toyAssignment?: Maybe<Scalars['String']['output']>;
 };
 
 export type RideDto = {
-  enabled: Scalars['Boolean'];
-  id?: InputMaybe<Scalars['Int']>;
-  index: Scalars['Int'];
-  length: Scalars['Int'];
+  enabled: Scalars['Boolean']['input'];
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Validation: [min: (0)] */
+  index: Scalars['Int']['input'];
+  /** Validation: [min: (1)] */
+  length: Scalars['Int']['input'];
+  /** Validation: [isNotEmpty] */
   satisfier: SatisfierDto;
-  timelineId?: InputMaybe<Scalars['Int']>;
-  toyAssignment: Scalars['String'];
+  timelineId?: InputMaybe<Scalars['Int']['input']>;
+  /** Validation: [isEnum: (vibrate, warm, push, electrify, pattern)] */
+  toyAssignment: Scalars['String']['input'];
 };
 
 export type RideEvent = {
   __typename?: 'RideEvent';
-  date?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
-  payload?: Maybe<Scalars['JSON']>;
+  date?: Maybe<Scalars['DateTime']['output']>;
+  id: Scalars['Int']['output'];
+  payload?: Maybe<Scalars['JSON']['output']>;
   run?: Maybe<Run>;
 };
 
 export type RideEventDto = {
-  payload?: InputMaybe<Scalars['JSON']>;
+  payload?: InputMaybe<Scalars['JSON']['input']>;
 };
 
 export type Run = {
   __typename?: 'Run';
-  active?: Maybe<Scalars['Boolean']>;
-  id: Scalars['Int'];
-  paused?: Maybe<Scalars['Boolean']>;
+  active?: Maybe<Scalars['Boolean']['output']>;
+  id: Scalars['Int']['output'];
+  paused?: Maybe<Scalars['Boolean']['output']>;
   play?: Maybe<Play>;
   ratings?: Maybe<Array<Rating>>;
-  runTime?: Maybe<Scalars['Float']>;
-  startDate?: Maybe<Scalars['DateTime']>;
+  runTime?: Maybe<Scalars['Float']['output']>;
+  startDate?: Maybe<Scalars['DateTime']['output']>;
 };
 
 export type Satisfier = {
   __typename?: 'Satisfier';
-  id: Scalars['Int'];
+  id: Scalars['Int']['output'];
   ride?: Maybe<Ride>;
-  settings?: Maybe<Scalars['JSON']>;
-  type?: Maybe<Scalars['String']>;
+  settings?: Maybe<Scalars['JSON']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
 };
 
 export type SatisfierDto = {
-  id?: InputMaybe<Scalars['Int']>;
-  settings?: InputMaybe<Scalars['JSON']>;
-  type: Scalars['String'];
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Validation: [] */
+  settings?: InputMaybe<Scalars['JSON']['input']>;
+  /** Validation: [isEnum: (random, peak, manual, replay, smartWatch, ai)] */
+  type: Scalars['String']['input'];
 };
 
 export type Settings = {
   __typename?: 'Settings';
-  wifiSsid?: Maybe<Scalars['String']>;
+  wifiSsid?: Maybe<Scalars['String']['output']>;
 };
 
 export type SettingsDto = {
-  adminPassword: Scalars['String'];
-  wifiPassword: Scalars['String'];
-  wifiSsid: Scalars['String'];
+  /** Validation: [matches: (^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$), maxLength: (20), minLength: (6)] */
+  adminPassword: Scalars['String']['input'];
+  wifiPassword: Scalars['String']['input'];
+  wifiSsid: Scalars['String']['input'];
 };
 
 export type SmartWatch = {
   __typename?: 'SmartWatch';
-  name?: Maybe<Scalars['String']>;
-  uuid?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']['output']>;
+  uuid?: Maybe<Scalars['String']['output']>;
 };
 
 export type Timeline = {
   __typename?: 'Timeline';
-  id: Scalars['Int'];
+  id: Scalars['Int']['output'];
   play?: Maybe<Play>;
   rides?: Maybe<Array<Ride>>;
   toy?: Maybe<Toy>;
-  toyId?: Maybe<Scalars['Int']>;
+  toyId?: Maybe<Scalars['Int']['output']>;
 };
 
 export type TimelineDto = {
-  id?: InputMaybe<Scalars['Int']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Validation: [arrayNotEmpty, isArray] */
   rides: Array<RideDto>;
-  toyId: Scalars['Int'];
+  /** Validation: [min: (1)] */
+  toyId: Scalars['Int']['input'];
 };
 
 export type Toy = {
   __typename?: 'Toy';
-  id: Scalars['Int'];
-  name?: Maybe<Scalars['String']>;
+  id: Scalars['Int']['output'];
+  name?: Maybe<Scalars['String']['output']>;
   timelines?: Maybe<Array<Timeline>>;
-  type?: Maybe<Scalars['String']>;
-  uuid?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']['output']>;
+  uuid?: Maybe<Scalars['String']['output']>;
 };
 
 export type ToyDto = {
-  id?: InputMaybe<Scalars['Int']>;
-  name: Scalars['String'];
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Validation: [matches: (^[\d\w ]+$), isNotEmpty] */
+  name: Scalars['String']['input'];
 };
 
 export type User = {
   __typename?: 'User';
-  avatar?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  gender?: Maybe<Scalars['String']>;
-  id: Scalars['Int'];
+  avatar?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  gender?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
   ratings?: Maybe<Array<Rating>>;
-  username?: Maybe<Scalars['String']>;
+  username?: Maybe<Scalars['String']['output']>;
 };
 
 export type UserDto = {
-  avatar: Scalars['String'];
-  description: Scalars['String'];
-  gender: Scalars['String'];
-  id?: InputMaybe<Scalars['Int']>;
-  password: Scalars['String'];
-  username: Scalars['String'];
+  /** Validation: [isNotEmpty] */
+  avatar: Scalars['String']['input'];
+  /** Validation: [isNotEmpty] */
+  description: Scalars['String']['input'];
+  /** Validation: [isEnum: (xx, xy)] */
+  gender: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Validation: [matches: (^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$), maxLength: (20), minLength: (6)] */
+  password: Scalars['String']['input'];
+  /** Validation: [matches: (^(?![_.])(?!.*[_.]{2})[a-zA-Z0-9_]+(?<![_.])$), notEquals: (admin), maxLength: (20), minLength: (6)] */
+  username: Scalars['String']['input'];
 };
 
 export type CreateUserMutationVariables = Exact<{
@@ -474,7 +504,7 @@ export type UpdatePlayMutation = {
 };
 
 export type StartPlayMutationVariables = Exact<{
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 }>;
 
 export type StartPlayMutation = {
@@ -488,7 +518,7 @@ export type StartPlayMutation = {
 };
 
 export type StopPlayMutationVariables = Exact<{
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 }>;
 
 export type StopPlayMutation = {
@@ -567,7 +597,7 @@ export type FindUsersQuery = {
 };
 
 export type FindUserQueryVariables = Exact<{
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 }>;
 
 export type FindUserQuery = {
@@ -623,7 +653,7 @@ export type FindCurrentUserQuery = {
 };
 
 export type FindUserByUsernameQueryVariables = Exact<{
-  username: Scalars['String'];
+  username: Scalars['String']['input'];
 }>;
 
 export type FindUserByUsernameQuery = {
@@ -676,7 +706,7 @@ export type FindToysQuery = {
 };
 
 export type FindToyQueryVariables = Exact<{
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 }>;
 
 export type FindToyQuery = {
@@ -702,7 +732,7 @@ export type FindToyQuery = {
 };
 
 export type FindToyByNameQueryVariables = Exact<{
-  name: Scalars['String'];
+  name: Scalars['String']['input'];
 }>;
 
 export type FindToyByNameQuery = {
@@ -774,7 +804,7 @@ export type FindPlaysQuery = {
 };
 
 export type FindPlayQueryVariables = Exact<{
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 }>;
 
 export type FindPlayQuery = {
@@ -868,7 +898,7 @@ export type FindActivePlayQuery = {
 };
 
 export type FindPlayByNameQueryVariables = Exact<{
-  name: Scalars['String'];
+  name: Scalars['String']['input'];
 }>;
 
 export type FindPlayByNameQuery = {
@@ -916,7 +946,7 @@ export type FindPlayByNameQuery = {
 };
 
 export type FindLastRideEventByRunQueryVariables = Exact<{
-  id: Scalars['Int'];
+  id: Scalars['Int']['input'];
 }>;
 
 export type FindLastRideEventByRunQuery = {
@@ -958,6 +988,7 @@ export const CreateUserDocument = `
   }
 }
     `;
+
 export const useCreateUserMutation = <TError = unknown, TContext = unknown>(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   options?: UseMutationOptions<
@@ -965,9 +996,9 @@ export const useCreateUserMutation = <TError = unknown, TContext = unknown>(
     TError,
     CreateUserMutationVariables,
     TContext
-  >
-) =>
-  useMutation<
+  >,
+) => {
+  return useMutation<
     CreateUserMutation,
     TError,
     CreateUserMutationVariables,
@@ -979,10 +1010,12 @@ export const useCreateUserMutation = <TError = unknown, TContext = unknown>(
         dataSource.endpoint,
         dataSource.fetchParams || {},
         CreateUserDocument,
-        variables
+        variables,
       )(),
-    options
+    options,
   );
+};
+
 export const UpdateUserDocument = `
     mutation UpdateUser($user: UserDto!) {
   updateUser(user: $user) {
@@ -994,6 +1027,7 @@ export const UpdateUserDocument = `
   }
 }
     `;
+
 export const useUpdateUserMutation = <TError = unknown, TContext = unknown>(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   options?: UseMutationOptions<
@@ -1001,9 +1035,9 @@ export const useUpdateUserMutation = <TError = unknown, TContext = unknown>(
     TError,
     UpdateUserMutationVariables,
     TContext
-  >
-) =>
-  useMutation<
+  >,
+) => {
+  return useMutation<
     UpdateUserMutation,
     TError,
     UpdateUserMutationVariables,
@@ -1015,10 +1049,12 @@ export const useUpdateUserMutation = <TError = unknown, TContext = unknown>(
         dataSource.endpoint,
         dataSource.fetchParams || {},
         UpdateUserDocument,
-        variables
+        variables,
       )(),
-    options
+    options,
   );
+};
+
 export const UpdateToyDocument = `
     mutation UpdateToy($toy: ToyDto!) {
   updateToy(toy: $toy) {
@@ -1029,6 +1065,7 @@ export const UpdateToyDocument = `
   }
 }
     `;
+
 export const useUpdateToyMutation = <TError = unknown, TContext = unknown>(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   options?: UseMutationOptions<
@@ -1036,19 +1073,26 @@ export const useUpdateToyMutation = <TError = unknown, TContext = unknown>(
     TError,
     UpdateToyMutationVariables,
     TContext
-  >
-) =>
-  useMutation<UpdateToyMutation, TError, UpdateToyMutationVariables, TContext>(
+  >,
+) => {
+  return useMutation<
+    UpdateToyMutation,
+    TError,
+    UpdateToyMutationVariables,
+    TContext
+  >(
     ['UpdateToy'],
     (variables?: UpdateToyMutationVariables) =>
       fetcher<UpdateToyMutation, UpdateToyMutationVariables>(
         dataSource.endpoint,
         dataSource.fetchParams || {},
         UpdateToyDocument,
-        variables
+        variables,
       )(),
-    options
+    options,
   );
+};
+
 export const CreatePlayDocument = `
     mutation CreatePlay($play: PlayDto!) {
   createPlay(play: $play) {
@@ -1073,6 +1117,7 @@ export const CreatePlayDocument = `
   }
 }
     `;
+
 export const useCreatePlayMutation = <TError = unknown, TContext = unknown>(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   options?: UseMutationOptions<
@@ -1080,9 +1125,9 @@ export const useCreatePlayMutation = <TError = unknown, TContext = unknown>(
     TError,
     CreatePlayMutationVariables,
     TContext
-  >
-) =>
-  useMutation<
+  >,
+) => {
+  return useMutation<
     CreatePlayMutation,
     TError,
     CreatePlayMutationVariables,
@@ -1094,10 +1139,12 @@ export const useCreatePlayMutation = <TError = unknown, TContext = unknown>(
         dataSource.endpoint,
         dataSource.fetchParams || {},
         CreatePlayDocument,
-        variables
+        variables,
       )(),
-    options
+    options,
   );
+};
+
 export const UpdatePlayDocument = `
     mutation UpdatePlay($play: PlayDto!) {
   updatePlay(play: $play) {
@@ -1122,6 +1169,7 @@ export const UpdatePlayDocument = `
   }
 }
     `;
+
 export const useUpdatePlayMutation = <TError = unknown, TContext = unknown>(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   options?: UseMutationOptions<
@@ -1129,9 +1177,9 @@ export const useUpdatePlayMutation = <TError = unknown, TContext = unknown>(
     TError,
     UpdatePlayMutationVariables,
     TContext
-  >
-) =>
-  useMutation<
+  >,
+) => {
+  return useMutation<
     UpdatePlayMutation,
     TError,
     UpdatePlayMutationVariables,
@@ -1143,10 +1191,12 @@ export const useUpdatePlayMutation = <TError = unknown, TContext = unknown>(
         dataSource.endpoint,
         dataSource.fetchParams || {},
         UpdatePlayDocument,
-        variables
+        variables,
       )(),
-    options
+    options,
   );
+};
+
 export const StartPlayDocument = `
     mutation StartPlay($id: Int!) {
   startPlay(id: $id) {
@@ -1156,6 +1206,7 @@ export const StartPlayDocument = `
   }
 }
     `;
+
 export const useStartPlayMutation = <TError = unknown, TContext = unknown>(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   options?: UseMutationOptions<
@@ -1163,19 +1214,26 @@ export const useStartPlayMutation = <TError = unknown, TContext = unknown>(
     TError,
     StartPlayMutationVariables,
     TContext
-  >
-) =>
-  useMutation<StartPlayMutation, TError, StartPlayMutationVariables, TContext>(
+  >,
+) => {
+  return useMutation<
+    StartPlayMutation,
+    TError,
+    StartPlayMutationVariables,
+    TContext
+  >(
     ['StartPlay'],
     (variables?: StartPlayMutationVariables) =>
       fetcher<StartPlayMutation, StartPlayMutationVariables>(
         dataSource.endpoint,
         dataSource.fetchParams || {},
         StartPlayDocument,
-        variables
+        variables,
       )(),
-    options
+    options,
   );
+};
+
 export const StopPlayDocument = `
     mutation StopPlay($id: Int!) {
   stopPlay(id: $id) {
@@ -1185,6 +1243,7 @@ export const StopPlayDocument = `
   }
 }
     `;
+
 export const useStopPlayMutation = <TError = unknown, TContext = unknown>(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   options?: UseMutationOptions<
@@ -1192,19 +1251,26 @@ export const useStopPlayMutation = <TError = unknown, TContext = unknown>(
     TError,
     StopPlayMutationVariables,
     TContext
-  >
-) =>
-  useMutation<StopPlayMutation, TError, StopPlayMutationVariables, TContext>(
+  >,
+) => {
+  return useMutation<
+    StopPlayMutation,
+    TError,
+    StopPlayMutationVariables,
+    TContext
+  >(
     ['StopPlay'],
     (variables?: StopPlayMutationVariables) =>
       fetcher<StopPlayMutation, StopPlayMutationVariables>(
         dataSource.endpoint,
         dataSource.fetchParams || {},
         StopPlayDocument,
-        variables
+        variables,
       )(),
-    options
+    options,
   );
+};
+
 export const CreateRideEventDocument = `
     mutation CreateRideEvent($event: RideEventDto!) {
   createRideEvent(event: $event) {
@@ -1214,9 +1280,10 @@ export const CreateRideEventDocument = `
   }
 }
     `;
+
 export const useCreateRideEventMutation = <
   TError = unknown,
-  TContext = unknown
+  TContext = unknown,
 >(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   options?: UseMutationOptions<
@@ -1224,9 +1291,9 @@ export const useCreateRideEventMutation = <
     TError,
     CreateRideEventMutationVariables,
     TContext
-  >
-) =>
-  useMutation<
+  >,
+) => {
+  return useMutation<
     CreateRideEventMutation,
     TError,
     CreateRideEventMutationVariables,
@@ -1238,10 +1305,12 @@ export const useCreateRideEventMutation = <
         dataSource.endpoint,
         dataSource.fetchParams || {},
         CreateRideEventDocument,
-        variables
+        variables,
       )(),
-    options
+    options,
   );
+};
+
 export const CreateRatingDocument = `
     mutation CreateRating($rating: RatingDto!) {
   createRating(rating: $rating) {
@@ -1252,6 +1321,7 @@ export const CreateRatingDocument = `
   }
 }
     `;
+
 export const useCreateRatingMutation = <TError = unknown, TContext = unknown>(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   options?: UseMutationOptions<
@@ -1259,9 +1329,9 @@ export const useCreateRatingMutation = <TError = unknown, TContext = unknown>(
     TError,
     CreateRatingMutationVariables,
     TContext
-  >
-) =>
-  useMutation<
+  >,
+) => {
+  return useMutation<
     CreateRatingMutation,
     TError,
     CreateRatingMutationVariables,
@@ -1273,10 +1343,12 @@ export const useCreateRatingMutation = <TError = unknown, TContext = unknown>(
         dataSource.endpoint,
         dataSource.fetchParams || {},
         CreateRatingDocument,
-        variables
+        variables,
       )(),
-    options
+    options,
   );
+};
+
 export const UpdateSettingsDocument = `
     mutation UpdateSettings($settings: SettingsDto!) {
   updateSettings(settings: $settings) {
@@ -1284,6 +1356,7 @@ export const UpdateSettingsDocument = `
   }
 }
     `;
+
 export const useUpdateSettingsMutation = <TError = unknown, TContext = unknown>(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   options?: UseMutationOptions<
@@ -1291,9 +1364,9 @@ export const useUpdateSettingsMutation = <TError = unknown, TContext = unknown>(
     TError,
     UpdateSettingsMutationVariables,
     TContext
-  >
-) =>
-  useMutation<
+  >,
+) => {
+  return useMutation<
     UpdateSettingsMutation,
     TError,
     UpdateSettingsMutationVariables,
@@ -1305,10 +1378,12 @@ export const useUpdateSettingsMutation = <TError = unknown, TContext = unknown>(
         dataSource.endpoint,
         dataSource.fetchParams || {},
         UpdateSettingsDocument,
-        variables
+        variables,
       )(),
-    options
+    options,
   );
+};
+
 export const FindUsersDocument = `
     query FindUsers {
   findUsers {
@@ -1334,21 +1409,24 @@ export const FindUsersDocument = `
   }
 }
     `;
+
 export const useFindUsersQuery = <TData = FindUsersQuery, TError = unknown>(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   variables?: FindUsersQueryVariables,
-  options?: UseQueryOptions<FindUsersQuery, TError, TData>
-) =>
-  useQuery<FindUsersQuery, TError, TData>(
+  options?: UseQueryOptions<FindUsersQuery, TError, TData>,
+) => {
+  return useQuery<FindUsersQuery, TError, TData>(
     variables === undefined ? ['FindUsers'] : ['FindUsers', variables],
     fetcher<FindUsersQuery, FindUsersQueryVariables>(
       dataSource.endpoint,
       dataSource.fetchParams || {},
       FindUsersDocument,
-      variables
+      variables,
     ),
-    options
+    options,
   );
+};
+
 export const FindUserDocument = `
     query FindUser($id: Int!) {
   findUser(id: $id) {
@@ -1374,21 +1452,24 @@ export const FindUserDocument = `
   }
 }
     `;
+
 export const useFindUserQuery = <TData = FindUserQuery, TError = unknown>(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   variables: FindUserQueryVariables,
-  options?: UseQueryOptions<FindUserQuery, TError, TData>
-) =>
-  useQuery<FindUserQuery, TError, TData>(
+  options?: UseQueryOptions<FindUserQuery, TError, TData>,
+) => {
+  return useQuery<FindUserQuery, TError, TData>(
     ['FindUser', variables],
     fetcher<FindUserQuery, FindUserQueryVariables>(
       dataSource.endpoint,
       dataSource.fetchParams || {},
       FindUserDocument,
-      variables
+      variables,
     ),
-    options
+    options,
   );
+};
+
 export const FindCurrentUserDocument = `
     query FindCurrentUser {
   findUser: findCurrentUser {
@@ -1414,15 +1495,16 @@ export const FindCurrentUserDocument = `
   }
 }
     `;
+
 export const useFindCurrentUserQuery = <
   TData = FindCurrentUserQuery,
-  TError = unknown
+  TError = unknown,
 >(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   variables?: FindCurrentUserQueryVariables,
-  options?: UseQueryOptions<FindCurrentUserQuery, TError, TData>
-) =>
-  useQuery<FindCurrentUserQuery, TError, TData>(
+  options?: UseQueryOptions<FindCurrentUserQuery, TError, TData>,
+) => {
+  return useQuery<FindCurrentUserQuery, TError, TData>(
     variables === undefined
       ? ['FindCurrentUser']
       : ['FindCurrentUser', variables],
@@ -1430,10 +1512,12 @@ export const useFindCurrentUserQuery = <
       dataSource.endpoint,
       dataSource.fetchParams || {},
       FindCurrentUserDocument,
-      variables
+      variables,
     ),
-    options
+    options,
   );
+};
+
 export const FindUserByUsernameDocument = `
     query FindUserByUsername($username: String!) {
   findUser: findUserByUsername(username: $username) {
@@ -1459,24 +1543,27 @@ export const FindUserByUsernameDocument = `
   }
 }
     `;
+
 export const useFindUserByUsernameQuery = <
   TData = FindUserByUsernameQuery,
-  TError = unknown
+  TError = unknown,
 >(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   variables: FindUserByUsernameQueryVariables,
-  options?: UseQueryOptions<FindUserByUsernameQuery, TError, TData>
-) =>
-  useQuery<FindUserByUsernameQuery, TError, TData>(
+  options?: UseQueryOptions<FindUserByUsernameQuery, TError, TData>,
+) => {
+  return useQuery<FindUserByUsernameQuery, TError, TData>(
     ['FindUserByUsername', variables],
     fetcher<FindUserByUsernameQuery, FindUserByUsernameQueryVariables>(
       dataSource.endpoint,
       dataSource.fetchParams || {},
       FindUserByUsernameDocument,
-      variables
+      variables,
     ),
-    options
+    options,
   );
+};
+
 export const FindToysDocument = `
     query FindToys {
   findToys {
@@ -1499,21 +1586,24 @@ export const FindToysDocument = `
   }
 }
     `;
+
 export const useFindToysQuery = <TData = FindToysQuery, TError = unknown>(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   variables?: FindToysQueryVariables,
-  options?: UseQueryOptions<FindToysQuery, TError, TData>
-) =>
-  useQuery<FindToysQuery, TError, TData>(
+  options?: UseQueryOptions<FindToysQuery, TError, TData>,
+) => {
+  return useQuery<FindToysQuery, TError, TData>(
     variables === undefined ? ['FindToys'] : ['FindToys', variables],
     fetcher<FindToysQuery, FindToysQueryVariables>(
       dataSource.endpoint,
       dataSource.fetchParams || {},
       FindToysDocument,
-      variables
+      variables,
     ),
-    options
+    options,
   );
+};
+
 export const FindToyDocument = `
     query FindToy($id: Int!) {
   findToy(id: $id) {
@@ -1536,21 +1626,24 @@ export const FindToyDocument = `
   }
 }
     `;
+
 export const useFindToyQuery = <TData = FindToyQuery, TError = unknown>(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   variables: FindToyQueryVariables,
-  options?: UseQueryOptions<FindToyQuery, TError, TData>
-) =>
-  useQuery<FindToyQuery, TError, TData>(
+  options?: UseQueryOptions<FindToyQuery, TError, TData>,
+) => {
+  return useQuery<FindToyQuery, TError, TData>(
     ['FindToy', variables],
     fetcher<FindToyQuery, FindToyQueryVariables>(
       dataSource.endpoint,
       dataSource.fetchParams || {},
       FindToyDocument,
-      variables
+      variables,
     ),
-    options
+    options,
   );
+};
+
 export const FindToyByNameDocument = `
     query FindToyByName($name: String!) {
   findToyByName(name: $name) {
@@ -1573,24 +1666,27 @@ export const FindToyByNameDocument = `
   }
 }
     `;
+
 export const useFindToyByNameQuery = <
   TData = FindToyByNameQuery,
-  TError = unknown
+  TError = unknown,
 >(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   variables: FindToyByNameQueryVariables,
-  options?: UseQueryOptions<FindToyByNameQuery, TError, TData>
-) =>
-  useQuery<FindToyByNameQuery, TError, TData>(
+  options?: UseQueryOptions<FindToyByNameQuery, TError, TData>,
+) => {
+  return useQuery<FindToyByNameQuery, TError, TData>(
     ['FindToyByName', variables],
     fetcher<FindToyByNameQuery, FindToyByNameQueryVariables>(
       dataSource.endpoint,
       dataSource.fetchParams || {},
       FindToyByNameDocument,
-      variables
+      variables,
     ),
-    options
+    options,
   );
+};
+
 export const FindPlaysDocument = `
     query FindPlays {
   findPlays {
@@ -1629,21 +1725,24 @@ export const FindPlaysDocument = `
   }
 }
     `;
+
 export const useFindPlaysQuery = <TData = FindPlaysQuery, TError = unknown>(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   variables?: FindPlaysQueryVariables,
-  options?: UseQueryOptions<FindPlaysQuery, TError, TData>
-) =>
-  useQuery<FindPlaysQuery, TError, TData>(
+  options?: UseQueryOptions<FindPlaysQuery, TError, TData>,
+) => {
+  return useQuery<FindPlaysQuery, TError, TData>(
     variables === undefined ? ['FindPlays'] : ['FindPlays', variables],
     fetcher<FindPlaysQuery, FindPlaysQueryVariables>(
       dataSource.endpoint,
       dataSource.fetchParams || {},
       FindPlaysDocument,
-      variables
+      variables,
     ),
-    options
+    options,
   );
+};
+
 export const FindPlayDocument = `
     query FindPlay($id: Int!) {
   findPlay(id: $id) {
@@ -1682,21 +1781,24 @@ export const FindPlayDocument = `
   }
 }
     `;
+
 export const useFindPlayQuery = <TData = FindPlayQuery, TError = unknown>(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   variables: FindPlayQueryVariables,
-  options?: UseQueryOptions<FindPlayQuery, TError, TData>
-) =>
-  useQuery<FindPlayQuery, TError, TData>(
+  options?: UseQueryOptions<FindPlayQuery, TError, TData>,
+) => {
+  return useQuery<FindPlayQuery, TError, TData>(
     ['FindPlay', variables],
     fetcher<FindPlayQuery, FindPlayQueryVariables>(
       dataSource.endpoint,
       dataSource.fetchParams || {},
       FindPlayDocument,
-      variables
+      variables,
     ),
-    options
+    options,
   );
+};
+
 export const FindActivePlayDocument = `
     query FindActivePlay {
   findActivePlay {
@@ -1735,15 +1837,16 @@ export const FindActivePlayDocument = `
   }
 }
     `;
+
 export const useFindActivePlayQuery = <
   TData = FindActivePlayQuery,
-  TError = unknown
+  TError = unknown,
 >(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   variables?: FindActivePlayQueryVariables,
-  options?: UseQueryOptions<FindActivePlayQuery, TError, TData>
-) =>
-  useQuery<FindActivePlayQuery, TError, TData>(
+  options?: UseQueryOptions<FindActivePlayQuery, TError, TData>,
+) => {
+  return useQuery<FindActivePlayQuery, TError, TData>(
     variables === undefined
       ? ['FindActivePlay']
       : ['FindActivePlay', variables],
@@ -1751,10 +1854,12 @@ export const useFindActivePlayQuery = <
       dataSource.endpoint,
       dataSource.fetchParams || {},
       FindActivePlayDocument,
-      variables
+      variables,
     ),
-    options
+    options,
   );
+};
+
 export const FindPlayByNameDocument = `
     query FindPlayByName($name: String!) {
   findPlayByName(name: $name) {
@@ -1793,24 +1898,27 @@ export const FindPlayByNameDocument = `
   }
 }
     `;
+
 export const useFindPlayByNameQuery = <
   TData = FindPlayByNameQuery,
-  TError = unknown
+  TError = unknown,
 >(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   variables: FindPlayByNameQueryVariables,
-  options?: UseQueryOptions<FindPlayByNameQuery, TError, TData>
-) =>
-  useQuery<FindPlayByNameQuery, TError, TData>(
+  options?: UseQueryOptions<FindPlayByNameQuery, TError, TData>,
+) => {
+  return useQuery<FindPlayByNameQuery, TError, TData>(
     ['FindPlayByName', variables],
     fetcher<FindPlayByNameQuery, FindPlayByNameQueryVariables>(
       dataSource.endpoint,
       dataSource.fetchParams || {},
       FindPlayByNameDocument,
-      variables
+      variables,
     ),
-    options
+    options,
   );
+};
+
 export const FindLastRideEventByRunDocument = `
     query FindLastRideEventByRun($id: Int!) {
   findLastRideEventByRun(id: $id) {
@@ -1820,24 +1928,27 @@ export const FindLastRideEventByRunDocument = `
   }
 }
     `;
+
 export const useFindLastRideEventByRunQuery = <
   TData = FindLastRideEventByRunQuery,
-  TError = unknown
+  TError = unknown,
 >(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   variables: FindLastRideEventByRunQueryVariables,
-  options?: UseQueryOptions<FindLastRideEventByRunQuery, TError, TData>
-) =>
-  useQuery<FindLastRideEventByRunQuery, TError, TData>(
+  options?: UseQueryOptions<FindLastRideEventByRunQuery, TError, TData>,
+) => {
+  return useQuery<FindLastRideEventByRunQuery, TError, TData>(
     ['FindLastRideEventByRun', variables],
     fetcher<FindLastRideEventByRunQuery, FindLastRideEventByRunQueryVariables>(
       dataSource.endpoint,
       dataSource.fetchParams || {},
       FindLastRideEventByRunDocument,
-      variables
+      variables,
     ),
-    options
+    options,
   );
+};
+
 export const FindSettingsDocument = `
     query FindSettings {
   findSettings {
@@ -1845,24 +1956,27 @@ export const FindSettingsDocument = `
   }
 }
     `;
+
 export const useFindSettingsQuery = <
   TData = FindSettingsQuery,
-  TError = unknown
+  TError = unknown,
 >(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   variables?: FindSettingsQueryVariables,
-  options?: UseQueryOptions<FindSettingsQuery, TError, TData>
-) =>
-  useQuery<FindSettingsQuery, TError, TData>(
+  options?: UseQueryOptions<FindSettingsQuery, TError, TData>,
+) => {
+  return useQuery<FindSettingsQuery, TError, TData>(
     variables === undefined ? ['FindSettings'] : ['FindSettings', variables],
     fetcher<FindSettingsQuery, FindSettingsQueryVariables>(
       dataSource.endpoint,
       dataSource.fetchParams || {},
       FindSettingsDocument,
-      variables
+      variables,
     ),
-    options
+    options,
   );
+};
+
 export const FindSmartWatchesDocument = `
     query FindSmartWatches {
   findSmartWatches {
@@ -1871,15 +1985,16 @@ export const FindSmartWatchesDocument = `
   }
 }
     `;
+
 export const useFindSmartWatchesQuery = <
   TData = FindSmartWatchesQuery,
-  TError = unknown
+  TError = unknown,
 >(
   dataSource: { endpoint: string; fetchParams?: RequestInit },
   variables?: FindSmartWatchesQueryVariables,
-  options?: UseQueryOptions<FindSmartWatchesQuery, TError, TData>
-) =>
-  useQuery<FindSmartWatchesQuery, TError, TData>(
+  options?: UseQueryOptions<FindSmartWatchesQuery, TError, TData>,
+) => {
+  return useQuery<FindSmartWatchesQuery, TError, TData>(
     variables === undefined
       ? ['FindSmartWatches']
       : ['FindSmartWatches', variables],
@@ -1887,7 +2002,8 @@ export const useFindSmartWatchesQuery = <
       dataSource.endpoint,
       dataSource.fetchParams || {},
       FindSmartWatchesDocument,
-      variables
+      variables,
     ),
-    options
+    options,
   );
+};
