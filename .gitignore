@@ -50,3 +50,5 @@ schema.gql
 docs/api/*
 docs/_rst/*
 docs/_build/*
+
+.nx/cache

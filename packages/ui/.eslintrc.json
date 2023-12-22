@@ -5,12 +5,14 @@
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
-        "react-hooks/rules-of-hooks": 1
+        "react-hooks/rules-of-hooks": 1,
+        "@typescript-eslint/no-unused-vars": 1
       }
     },
     {
       "files": ["*.ts", "*.tsx"],
       "rules": {
+        "@typescript-eslint/no-explicit-any": 1,
         "@typescript-eslint/no-non-null-asserted-optional-chain": 1
       }
     },
