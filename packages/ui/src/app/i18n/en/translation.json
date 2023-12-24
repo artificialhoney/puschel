@@ -115,8 +115,8 @@
       "gender": "Gender",
       "genderPlaceholder": "Choose Gender",
       "genders": {
-        "puschel": {
-          "title": "puschel"
+        "xx": {
+          "title": "XX"
         },
         "xy": {
           "title": "XY"
