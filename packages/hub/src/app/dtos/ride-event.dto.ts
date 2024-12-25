@@ -7,5 +7,5 @@ import { DtoField } from '../decorators/dto-field.decorator';
 @ArgsType()
 export class RideEventDto extends models.RideEvent {
   @DtoField(() => Object, { nullable: true })
-  payload?: any;
+  declare payload?: any;
 }

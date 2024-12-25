@@ -7,14 +7,14 @@ import { DtoField } from '../decorators/dto-field.decorator';
 @ArgsType()
 export class RatingDto extends models.Rating {
   @DtoField()
-  score: number;
+  declare score: number;
 
   @DtoField(() => Int)
-  orgasms: number;
+  declare orgasms: number;
 
   @DtoField()
-  message: string;
+  declare message: string;
 
   @DtoField(() => Int)
-  runId: number;
+  declare runId: number;
 }

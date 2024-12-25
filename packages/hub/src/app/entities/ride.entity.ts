@@ -17,33 +17,33 @@ import { Timeline } from './timeline.entity';
 export class Ride extends models.Ride {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
-  id: number;
+  declare id: number;
 
   @Field(() => Boolean, { nullable: true })
   @Column()
-  enabled: boolean;
+  declare enabled: boolean;
 
   @Field(() => Int, { nullable: true })
   @Column()
-  index: number;
+  declare index: number;
 
   @Field(() => Int, { nullable: true })
   @Column()
-  length: number;
+  declare length: number;
 
   @Field(() => Timeline, { nullable: true })
   @ManyToOne(() => Timeline, (timeline) => timeline.rides)
-  timeline: Timeline;
+  declare timeline: Timeline;
 
   @Field(() => Satisfier, { nullable: true })
   @OneToOne(() => Satisfier)
   @JoinColumn()
-  satisfier: Satisfier;
+  declare satisfier: Satisfier;
 
   @Field(() => String, { nullable: true })
   @Column({
     type: 'simple-enum',
     enum: models.ToyAssignment,
   })
-  toyAssignment: models.ToyAssignment;
+  declare toyAssignment: models.ToyAssignment;
 }

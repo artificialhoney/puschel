@@ -15,17 +15,11 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "react-jsx"
-  },
-  "files": [],
-  "include": ["src"],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
+    "jsx": "react-jsx",
+    "outDir": "./dist",
+    "paths": {
+      "@puschel/models": ["../models/src/index.ts"]
     }
-  ],
-  "extends": "../../tsconfig.base.json"
+  },
+  "include": ["src/**/*"]
 }

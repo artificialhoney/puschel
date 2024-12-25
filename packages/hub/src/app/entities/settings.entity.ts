@@ -4,5 +4,5 @@ import * as models from '@puschel/models';
 @ObjectType()
 export class Settings extends models.Settings {
   @Field({ nullable: true })
-  wifiSsid: string;
+  declare wifiSsid: string;
 }

@@ -19,20 +19,20 @@ export class SmartWatch {
 export class Satisfier extends models.Satisfier {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
-  id: number;
+  declare id: number;
 
   @Field(() => String, { nullable: true })
   @Column({
     type: 'simple-enum',
     enum: SatisfierType,
   })
-  type: SatisfierType;
+  declare type: SatisfierType;
 
   @Field(() => Object, { middleware: [jsonFieldMiddleware], nullable: true })
   @Column({ type: 'text', nullable: true })
-  settings?: any;
+  declare settings?: any;
 
   @Field(() => Ride, { nullable: true })
   @OneToOne(() => Ride)
-  ride: Ride;
+  declare ride: Ride;
 }

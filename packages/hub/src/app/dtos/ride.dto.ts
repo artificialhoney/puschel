@@ -10,23 +10,23 @@ import { SatisfierDto } from './satisfier.dto';
 @ArgsType()
 export class RideDto extends Ride {
   @DtoField(() => Int, { nullable: true })
-  id: number;
+  declare id: number;
 
   @DtoField(() => Boolean)
-  enabled: boolean;
+  declare enabled: boolean;
 
   @DtoField(() => String)
-  toyAssignment: ToyAssignment;
+  declare toyAssignment: ToyAssignment;
 
   @DtoField(() => Int)
-  index: number;
+  declare index: number;
 
   @DtoField(() => Int)
-  length: number;
+  declare length: number;
 
   @DtoField(() => SatisfierDto)
-  satisfier: Satisfier;
+  declare satisfier: Satisfier;
 
   @DtoField(() => Int, { nullable: true })
-  timelineId: number;
+  declare timelineId: number;
 }

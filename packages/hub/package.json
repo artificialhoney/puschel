@@ -1,11 +1,6 @@
 {
   "name": "@puschel/hub",
-  "main": "./src/main.js",
-  "dependencies": {
-    "better-sqlite3": "^8.3.0",
-    "class-transformer": "^0.5.1",
-    "graphql-type-json": "^0.3.2"
-  },
+  "main": "./dist/main.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/artificialhoney/puschel.git",
@@ -22,5 +17,40 @@
     "game",
     "pair",
     "toy"
-  ]
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon src/main.ts",
+    "start": "node dist/hub/src/main.js"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.11.2",
+    "@nestjs/apollo": "^12.2.2",
+    "@nestjs/graphql": "^12.2.2",
+    "@nestjs/jwt": "^10.2.0",
+    "@nestjs/passport": "^10.0.3",
+    "@nestjs/platform-express": "^10.4.15",
+    "@nestjs/schedule": "^4.1.2",
+    "@nestjs/serve-static": "^4.0.2",
+    "@nestjs/typeorm": "^10.0.2",
+    "@puschel/core": "../core",
+    "@puschel/models": "../models",
+    "better-sqlite3": "^9.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "express": "^4.21.2",
+    "graphql-type-json": "^0.3.2",
+    "nestjs-config": "^1.4.11",
+    "nestjs-pino": "^4.2.0",
+    "node-wifi": "^2.0.16",
+    "passport-jwt": "^4.0.1",
+    "pino-pretty": "^13.0.0",
+    "undici-types": "^7.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/graphql-type-json": "^0.3.5",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2"
+  }
 }

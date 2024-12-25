@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AiService } from '@puschel/ai';
 import { SmartWatchService, ToyService as BleToyService } from '@puschel/core';
 
 import { Play } from './entities/play.entity';
@@ -21,9 +20,7 @@ import { RunService } from './services/run.service';
 import { SatisfierService } from './services/satisfier.service';
 import { TimelineService } from './services/timeline.service';
 import { ToyService } from './services/toy.service';
-import { UpdateService } from './services/update.service';
 import { UserService } from './services/user.service';
-import { WifiService } from './services/wifi.service';
 
 const entities = [
   Toy,
@@ -47,9 +44,7 @@ const services = [
   RunService,
   PlayService,
   UserService,
-  PlayTaskService,
-  WifiService,
-  UpdateService,
+  PlayTaskService
 ];
 
 @Module({
@@ -71,11 +66,7 @@ const services = [
         service.scan();
         return service;
       },
-    },
-    {
-      provide: AiService,
-      useClass: AiService,
-    },
+    }
   ],
   exports: [...services],
 })

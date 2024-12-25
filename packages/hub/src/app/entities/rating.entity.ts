@@ -10,35 +10,35 @@ import { User } from './user.entity';
 export class Rating extends models.Rating {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
-  id: number;
+  declare id: number;
 
   @Field(() => Float, { nullable: true })
   @Column('decimal', { precision: 6, scale: 2 })
-  score: number;
+  declare score: number;
 
   @Field(() => Int, { nullable: true })
   @Column()
-  orgasms: number;
+  declare orgasms: number;
 
   @Field({ nullable: true })
   @Column('text')
-  message: string;
+  declare message: string;
 
   @Field({ nullable: true })
   @Column()
-  date: Date;
+  declare date: Date;
 
   @Field(() => Run, { nullable: true })
   @ManyToOne(() => Run, (run) => run.ratings)
-  run: Run;
+  declare run: Run;
 
   @Field(() => User, { nullable: true })
   @ManyToOne(() => User, (user) => user.ratings)
-  user: User;
+  declare user: User;
 
   @Field(() => Int, { nullable: true })
-  playId: number;
+  declare playId: number;
 
   @Field(() => Int, { nullable: true })
-  userId: number;
+  declare userId: number;
 }

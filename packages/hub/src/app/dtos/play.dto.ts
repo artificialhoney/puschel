@@ -9,14 +9,14 @@ import { TimelineDto } from './timeline.dto';
 @ArgsType()
 export class PlayDto extends models.Play {
   @DtoField(() => Int, { nullable: true })
-  id: number;
+  declare id: number;
 
   @DtoField()
-  name: string;
+  declare name: string;
 
   @DtoField()
-  description: string;
+  declare description: string;
 
   @DtoField(() => [TimelineDto])
-  timelines: Timeline[];
+  declare timelines: Timeline[];
 }

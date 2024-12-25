@@ -10,31 +10,31 @@ import { Rating } from './rating.entity';
 export class User extends models.User {
   @Field((type) => Int)
   @PrimaryGeneratedColumn()
-  id: number;
+  declare id: number;
 
   @Field({ nullable: true })
   @Column({ unique: true })
-  username: string;
+  declare username: string;
 
   @Column()
-  password: string;
+  declare password: string;
 
   @Field({ nullable: true })
   @Column('text')
-  description: string;
+  declare description: string;
 
   @Field({ nullable: true })
   @Column('text')
-  avatar: string;
+  declare avatar: string;
 
   @Field(() => String, { nullable: true })
   @Column({
     type: 'simple-enum',
     enum: UserGender,
   })
-  gender: UserGender;
+  declare gender: UserGender;
 
   @Field(() => [Rating], { nullable: true })
   @OneToMany(() => Rating, (rating) => rating.user)
-  ratings: Rating[];
+  declare ratings: Rating[];
 }

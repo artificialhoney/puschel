@@ -8,20 +8,20 @@ import { DtoField } from '../decorators/dto-field.decorator';
 @ArgsType()
 export class UserDto extends models.User {
   @DtoField(() => Int, { nullable: true })
-  id: number;
+  declare id: number;
 
   @DtoField()
-  username: string;
+  declare username: string;
 
   @DtoField()
-  description: string;
+  declare description: string;
 
   @DtoField()
-  password: string;
+  declare password: string;
 
   @DtoField()
-  avatar: string;
+  declare avatar: string;
 
   @DtoField(() => String)
-  gender: UserGender;
+  declare gender: UserGender;
 }

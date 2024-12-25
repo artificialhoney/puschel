@@ -11,20 +11,20 @@ import { Toy } from './toy.entity';
 export class Timeline extends models.Timeline {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
-  id: number;
+  declare id: number;
 
   @Field(() => Play, { nullable: true })
   @ManyToOne(() => Play, (play) => play.timelines)
-  play: Play;
+  declare play: Play;
 
   @Field(() => [Ride], { nullable: true })
   @OneToMany(() => Ride, (ride) => ride.timeline)
-  rides: Ride[];
+  declare rides: Ride[];
 
   @Field(() => Toy, { nullable: true })
   @ManyToOne(() => Toy, (toy) => toy.timelines)
-  toy: Toy;
+  declare toy: Toy;
 
   @Field(() => Int, { nullable: true })
-  toyId: number;
+  declare toyId: number;
 }

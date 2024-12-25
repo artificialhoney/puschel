@@ -10,20 +10,20 @@ import { Run } from './run.entity';
 export class RideEvent extends models.RideEvent {
   @Field((type) => Int)
   @PrimaryGeneratedColumn()
-  id: number;
+  declare id: number;
 
   @Field({ nullable: true })
   @Column()
-  date: Date;
+  declare date: Date;
 
   @Field(() => Object, { middleware: [jsonFieldMiddleware], nullable: true })
   @Column({
     type: 'text',
     nullable: true,
   })
-  payload?: any;
+  declare payload?: any;
 
   @Field(() => Run, { nullable: true })
   @ManyToOne(() => Run, (run) => run.events)
-  run: Run;
+  declare run: Run;
 }

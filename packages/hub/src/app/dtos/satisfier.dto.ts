@@ -7,11 +7,11 @@ import { DtoField } from '../decorators/dto-field.decorator';
 @InputType()
 export class SatisfierDto extends models.Satisfier {
   @DtoField(() => Int, { nullable: true })
-  id: number;
+  declare id: number;
 
   @DtoField(() => String)
-  type: SatisfierType;
+  declare type: SatisfierType;
 
   @DtoField(() => Object, { nullable: true })
-  settings?: any;
+  declare settings?: any;
 }

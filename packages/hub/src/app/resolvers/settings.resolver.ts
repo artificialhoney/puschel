@@ -9,7 +9,6 @@ import { SettingsDto } from '../dtos/settings.dto';
 import { Settings } from '../entities/settings.entity';
 import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { UserActionGuard } from '../guards/user-action.guard';
-import { WifiService } from '../services/wifi.service';
 
 @UseGuards(JwtAuthGuard)
 @Resolver(() => Settings)
@@ -17,8 +16,7 @@ export class SettingsResolver {
   private static ENV_NAME = '.env';
 
   constructor(
-    private configService: ConfigService,
-    private wifiService: WifiService
+    private configService: ConfigService
   ) {}
 
   @Mutation(() => Settings)
@@ -41,8 +39,6 @@ ${camelToSnakeCase(val).toUpperCase()}=${s[val]}${agg}
 `;
       }, '')
     );
-
-    this.wifiService.init();
 
     return new Settings();
   }

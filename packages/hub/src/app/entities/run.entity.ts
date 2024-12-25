@@ -17,32 +17,32 @@ import { RideEvent } from './ride-event.entity';
 export class Run extends models.Run {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
-  id: number;
+  declare id: number;
 
   @Field(() => Boolean, { nullable: true })
   @Column({ default: false })
-  paused: boolean;
+  declare paused: boolean;
 
   @Field(() => Boolean, { nullable: true })
   @Column({ default: false })
-  active: boolean;
+  declare active: boolean;
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  startDate: Date;
+  declare startDate: Date;
 
   @Field({ nullable: true })
   @Column({ nullable: true, default: 0 })
-  runTime: number;
+  declare runTime: number;
 
   @Field(() => Play, { nullable: true })
   @ManyToOne(() => Play, (play) => play.runs)
-  play: Play;
+  declare play: Play;
 
   @OneToMany(() => RideEvent, (event) => event.run)
-  events: RideEvent[];
+  declare events: RideEvent[];
 
   @Field(() => [Rating], { nullable: true })
   @OneToMany(() => Rating, (rating) => rating.run)
-  ratings: Rating[];
+  declare ratings: Rating[];
 }

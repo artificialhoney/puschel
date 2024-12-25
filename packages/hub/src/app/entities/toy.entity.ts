@@ -10,24 +10,24 @@ import { Timeline } from './timeline.entity';
 export class Toy extends models.Toy {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
-  id: number;
+  declare id: number;
 
   @Field({ nullable: true })
   @Column()
-  name: string;
+  declare name: string;
 
   @Field(() => String, { nullable: true })
   @Column({
     type: 'simple-enum',
     enum: ToyType,
   })
-  type: ToyType;
+  declare type: ToyType;
 
   @Field({ nullable: true })
   @Column({ unique: true })
-  uuid: string;
+  declare uuid: string;
 
   @Field(() => [Timeline], { nullable: true })
   @OneToMany(() => Timeline, (timeline) => timeline.toy)
-  timelines: Timeline[];
+  declare timelines: Timeline[];
 }

@@ -1,6 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
-import { AiService, RideEventData } from '@puschel/ai';
 import {
   SmartWatchEvent,
   SmartWatchService,
@@ -38,8 +37,7 @@ export class PlayTaskService {
     private bleToyService: BleToyService,
     private rideService: RideService,
     private rideEventService: RideEventService,
-    private smartWatchService: SmartWatchService,
-    private aiService: AiService
+    private smartWatchService: SmartWatchService
   ) {
     this.smartWatchService.on(SmartWatchService.EVENT_NAME, (event) =>
       this.handleSmartWatchEvent(event)
@@ -149,44 +147,6 @@ export class PlayTaskService {
         }
         return true;
 
-      case SatisfierType.AI:
-        if (run.runTime === 0) {
-          return true;
-        }
-        let events: RideEvent[] = [];
-        for (const playId of settings.playIds) {
-          const r = await this.runService.findLastOneByPlay(
-            await this.playService.findOne(playId)
-          );
-          if (!r || r.active || r.id === run.id) {
-            continue;
-          }
-          const newEvents = (await this.rideEventService.findAllByRun(r)).map(
-            (e) => ({
-              ...e,
-              date: new Date(+e.date - +r.startDate),
-            })
-          );
-          events = [...events, ...newEvents];
-        }
-        events = events.sort((a, b) => +a.date - +b.date);
-        // const distance = +events[events.length - 1].date - +events[0].date;
-        const data = new RideEventData(
-          RideEventData.toData(events.filter((e) => +e.date < run.runTime))
-        );
-        if (data.data.length === 0) {
-          return false;
-        }
-        const aiModel = await this.aiService.buildModel(data);
-        const result = (await this.aiService.makePredictions(
-          aiModel,
-          data
-        )) as any;
-        event.payload = {
-          value: Math.max(0, Math.min(result[0], 1)),
-        };
-        await this.handleRideEvent(event, toy, ride);
-        return true;
       case SatisfierType.REPLAY:
         const replayRun = await this.runService.findOne(settings.runId);
         if (!replayRun) {

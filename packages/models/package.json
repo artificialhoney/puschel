@@ -17,5 +17,16 @@
     "game",
     "pair",
     "toy"
-  ]
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  }
 }

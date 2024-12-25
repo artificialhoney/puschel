@@ -7,11 +7,11 @@ import { DtoField } from '../decorators/dto-field.decorator';
 @ArgsType()
 export class SettingsDto extends models.Settings {
   @DtoField()
-  adminPassword: string;
+  declare adminPassword: string;
 
   @DtoField()
-  wifiSsid: string;
+  declare wifiSsid: string;
 
   @DtoField()
-  wifiPassword: string;
+  declare wifiPassword: string;
 }

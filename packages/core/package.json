@@ -18,5 +18,15 @@
     "game",
     "pair",
     "toy"
-  ]
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@abandonware/noble": "^1.9.2-25"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  }
 }

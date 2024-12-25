@@ -7,11 +7,11 @@ import { RideDto } from './ride.dto';
 @InputType()
 export class TimelineDto extends Timeline {
   @DtoField(() => Int, { nullable: true })
-  id: number;
+  declare id: number;
 
   @DtoField(() => Int)
-  toyId: number;
+  declare toyId: number;
 
   @DtoField(() => [RideDto])
-  rides: Ride[];
+  declare rides: Ride[];
 }

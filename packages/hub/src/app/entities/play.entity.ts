@@ -10,21 +10,21 @@ import { Timeline } from './timeline.entity';
 export class Play extends models.Play {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
-  id: number;
+  declare id: number;
 
   @Field({ nullable: true })
   @Column({ unique: true })
-  name: string;
+  declare name: string;
 
   @Field({ nullable: true })
   @Column()
-  description: string;
+  declare description: string;
 
   @Field(() => [Timeline], { nullable: true })
   @OneToMany(() => Timeline, (timeline) => timeline.play)
-  timelines: Timeline[];
+  declare timelines: Timeline[];
 
   @Field(() => [Run], { nullable: true })
   @OneToMany(() => Run, (run) => run.play)
-  runs: Run[];
+  declare runs: Run[];
 }

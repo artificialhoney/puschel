@@ -7,8 +7,8 @@ import { DtoField } from '../decorators/dto-field.decorator';
 @ArgsType()
 export class ToyDto extends models.Toy {
   @DtoField(() => Int, { nullable: true })
-  id: number;
+  declare id: number;
 
   @DtoField()
-  name: string;
+  declare name: string;
 }
