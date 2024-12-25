@@ -10,23 +10,30 @@ import { Satisfier } from './entities/satisfier.entity';
 import { Timeline } from './entities/timeline.entity';
 import { Toy } from './entities/toy.entity';
 import { User } from './entities/user.entity';
+import { ConfigModule, ConfigService } from 'nestjs-config';
 
 const modules = [
-  TypeOrmModule.forRoot({
-    type: 'better-sqlite3',
-    database: 'db.sqlite3',
-    entities: [
-      Toy,
-      RideEvent,
-      Satisfier,
-      Rating,
-      Timeline,
-      Ride,
-      Run,
-      Play,
-      User,
-    ],
-    synchronize: true,
+  TypeOrmModule.forRootAsync({
+    imports: [ConfigModule],
+    useFactory: (config: ConfigService) => {
+      return {
+        type: 'mongodb',
+        url: config.get('settings.mongoUrl'),
+        entities: [
+          Toy,
+          RideEvent,
+          Satisfier,
+          Rating,
+          Timeline,
+          Ride,
+          Run,
+          Play,
+          User,
+        ],
+        synchronize: false,
+      };
+    },
+    inject: [ConfigService],
   }),
 ];
 

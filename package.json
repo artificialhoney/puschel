@@ -5,7 +5,7 @@
     "url": "https://github.com/artificialhoney/puschel.git"
   },
   "scripts": {
-    "dev": " concurrently --kill-others \"npm run dev --workspace=packages/ui\" \"npm run dev --workspace=packages/hub\"",
+    "dev": " concurrently --kill-others \"docker compose -f docker-compose.mongo.yml up --build\" \"npm run dev --workspace=packages/ui\" \"npm run dev --workspace=packages/hub\"",
     "lint:fix": "eslint --fix",
     "gql:compile": "graphql-codegen --config packages/ui/codegen.ts",
     "gql:watch": "graphql-codegen -w --config packages/ui/codegen.ts"

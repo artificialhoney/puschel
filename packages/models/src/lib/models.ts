@@ -64,7 +64,7 @@ export class User {
     '',
     {
       message: 'validation.user.password.matches',
-    }
+    },
   )
   password: string;
   @IsNotEmpty({ message: 'validation.user.description.isNotEmpty' })
@@ -195,11 +195,10 @@ export class Settings {
     '',
     {
       message: 'validation.settings.adminPassword.matches',
-    }
+    },
   )
   adminPassword: string;
   jwtSecret?: string;
   staticPath?: string;
-  wifiSsid: string;
-  wifiPassword: string;
+  mongoUrl?: string;
 }

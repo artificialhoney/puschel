@@ -1,0 +1,14 @@
+services:
+  mongo:
+    image: ${PUSCHEL_MONGO_IMAGE:-mongo}
+    restart: unless-stopped
+    container_name: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ${PUSCHEL_MONGO_DB_PATH:-./db}:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: puschel
+      MONGO_INITDB_ROOT_PASSWORD: unsecure
+      MONGO_INITDB_DATABASE: puschel
