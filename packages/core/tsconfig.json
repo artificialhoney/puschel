@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "composite": true,
     "module": "CommonJS",
     "declaration": true,
     "removeComments": true,
@@ -16,8 +17,5 @@
     "moduleResolution": "node",
     "esModuleInterop": true
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src/**/*"]
 }
-

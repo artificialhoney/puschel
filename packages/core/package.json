@@ -1,7 +1,6 @@
 {
   "name": "@puschel/core",
   "version": "0.0.1",
-  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/artificialhoney/puschel.git",
@@ -27,6 +26,9 @@
     "@abandonware/noble": "^1.9.2-25"
   },
   "exports": {
-    ".": "./dist/index.js"
+    ".": [
+      "./src/index.ts",
+      "./dist/index.js"
+    ]
   }
 }

@@ -18,5 +18,6 @@
     "paths": {
       "@puschel/*": ["../*/src"]
     }
-  }
+  },
+  "references": [{ "path": "../models" }]
 }

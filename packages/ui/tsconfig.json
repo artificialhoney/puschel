@@ -11,14 +11,14 @@
     "noEmit": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
-    "esModuleInterop": false,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
     "outDir": "./dist",
+    "esModuleInterop": true,
     "paths": {
-      "@puschel/models": ["../models/src/index.ts"]
+      "@puschel/*": ["../*/src"]
     }
   },
   "include": ["src/**/*"]

@@ -1,6 +1,6 @@
 {
   "name": "@puschel/models",
-  "type": "commonjs",
+  "main": "./dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/artificialhoney/puschel.git",
@@ -27,6 +27,9 @@
     "class-validator": "^0.14.1"
   },
   "exports": {
-    ".": "./dist/index.js"
+    ".": [
+      "./src/index.ts",
+      "./dist/index.js"
+    ]
   }
 }
