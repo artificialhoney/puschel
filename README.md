@@ -2,6 +2,12 @@
 
 IoT system to control BLE love toys and much more like an **GraphQL API** for thirs-party integrations.
 
+## Development
+
+```bash
+npm run dev
+```
+
 ## Toys
 
 Following toys are currently supported:
